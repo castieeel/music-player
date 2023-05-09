@@ -1,4 +1,5 @@
 import logo from "../../../assets/img/logo.png";
+
 export const Logo = () => {
   return (
     <div className="nav__logo logo">

@@ -1,5 +1,5 @@
-import { PlaylistTitle } from "./PlaylistTitle";
-import { Playlist } from "./Playlist";
+import { PlaylistTitle } from "./playlist/PlaylistTitle";
+import { Playlist } from "./playlist/Playlist";
 export const Content = () => {
   return (
     <div className="centerblock__content">
