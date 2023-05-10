@@ -1,7 +1,6 @@
 import { Controls } from "./player/Controls";
 import { TrackPlay } from "./player/TrackPlay";
 import { Volume } from "./player/Volume";
-import React, {useState} from "react";
 
 export const Bar = () => {
   return (

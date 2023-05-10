@@ -1,5 +1,5 @@
 import Icons from "../../../../../assets/img/icon/sprite.svg";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import Skeleton from "react-loading-skeleton";
 import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from "react";
@@ -18,14 +18,12 @@ export const PlaylistItem = (props) => {
   return (
     <div className="playlist__item">
       {loading ? (
-        <SkeletonTheme baseColor="#313131" highlightColor="#525252">
-          <Skeleton className="playlist__item" />
-          {/* <Skeleton className="track__title-image" />
-          <Skeleton className="track__title-link" />
-          <Skeleton className="track__author-link" />
-          <Skeleton className="track__album-link" />
-          <Skeleton className="track__time-text" /> */}
-        </SkeletonTheme>
+        <div className="playlist__track track">
+          <Skeleton className="track__title" />
+          <Skeleton className="track__author" />
+          <Skeleton className="track__album" />
+          <Skeleton className="track__time" />
+        </div>
       ) : (
         <div className="playlist__track track">
           <div className="track__title">

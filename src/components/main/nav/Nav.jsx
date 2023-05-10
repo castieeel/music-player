@@ -12,7 +12,7 @@ export const Nav = () => {
   };
 
   return (
-    <nav class="main__nav nav">
+    <nav className="main__nav nav">
       <Logo />
       <Burger onClick={toggleVisibility} />
       {visible && <Menu />}

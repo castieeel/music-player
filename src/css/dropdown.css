@@ -14,16 +14,17 @@
   padding-right: 34px;
   padding-bottom: 36.5px;
   box-sizing: border-box;
-  &::before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    right: 20px;
-    height: 20px;
-    width: 20px;
-    background: var(--secondary-bg);
-    transform: rotate(45deg);
-  }
+}
+
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  height: 20px;
+  width: 20px;
+  background: var(--secondary-bg);
+  transform: rotate(45deg);
 }
 
 .dropdown-menu.active {
@@ -84,14 +85,14 @@
   font-size: 20px;
   line-height: 24px;
   transition: 0.2s all;
-  &:hover {
-    color: #ad61ff;
-    text-decoration: underline;
-  }
-  &:active {
-    color: #ad61ff;
-    text-decoration: underline;
-  }
+}
+.dropdownItem span:hover {
+  color: #ad61ff;
+  text-decoration: underline;
+}
+.dropdownItem span:active {
+  color: #ad61ff;
+  text-decoration: underline;
 }
 
 .dropdown__radio-div {
@@ -118,7 +119,6 @@
 }
 .dropdown__radio-div label::before {
   text-align: center;
-
   width: 18px;
   height: 18px;
   content: "";
