@@ -1,6 +1,7 @@
 import { Controls } from "./player/Controls";
 import { TrackPlay } from "./player/TrackPlay";
 import { Volume } from "./player/Volume";
+
 export const Bar = () => {
   return (
     <div className="bar">

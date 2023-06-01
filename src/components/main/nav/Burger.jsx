@@ -1,6 +1,10 @@
-export const Burger = () => {
+export const Burger = ({ onClick }) => {
+  const changeVisibility = () => {
+    onClick();
+  };
+
   return (
-    <div className="nav__burger burger">
+    <div onClick={changeVisibility} className="nav__burger burger">
       <span className="burger__line"></span>
       <span className="burger__line"></span>
       <span className="burger__line"></span>
