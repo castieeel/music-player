@@ -218,6 +218,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 51px;
+  gap: 10px;
 }
 
 .centerblock__content {
