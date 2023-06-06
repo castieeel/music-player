@@ -1,4 +1,5 @@
 import Icons from "../../../assets/img/icon/sprite.svg";
+import * as S from "./styles";
 
 export const controlsData = [
   {

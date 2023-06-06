@@ -2,6 +2,7 @@ import { Logo } from "./Logo";
 import { Burger } from "./Burger";
 import { Menu } from "./Menu";
 import React from "react";
+import * as S from "./styles";
 const { useState } = React;
 
 export const Nav = () => {
@@ -12,10 +13,10 @@ export const Nav = () => {
   };
 
   return (
-    <nav className="main__nav nav">
+    <S.MainNav>
       <Logo />
       <Burger onClick={toggleVisibility} />
       {visible && <Menu />}
-    </nav>
+    </S.MainNav>
   );
 };

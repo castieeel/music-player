@@ -1,23 +1,19 @@
+import * as S from "./styles";
+
 export const Menu = () => {
   return (
-    <div className="nav__menu menu">
-      <ul className="menu__list">
-        <li className="menu__item">
-          <a href="http://" className="menu__link">
-            Главное
-          </a>
-        </li>
-        <li className="menu__item">
-          <a href="http://" className="menu__link">
-            Мой плейлист
-          </a>
-        </li>
-        <li className="menu__item">
-          <a href="http://" className="menu__link">
-            Войти
-          </a>
-        </li>
-      </ul>
-    </div>
+    <S.NavMenu>
+      <S.NavMenuList>
+        <S.NavMenuItem>
+          <S.NavMenuLink href="http://">Главное</S.NavMenuLink>
+        </S.NavMenuItem>
+        <S.NavMenuItem>
+          <S.NavMenuLink href="http://">Мой плейлист</S.NavMenuLink>
+        </S.NavMenuItem>
+        <S.NavMenuItem>
+          <S.NavMenuLink href="http://">Войти</S.NavMenuLink>
+        </S.NavMenuItem>
+      </S.NavMenuList>
+    </S.NavMenu>
   );
 };

@@ -3,6 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from "react";
+import * as S from "./styles";
 
 export const TrackPlay = () => {
   const [loading, setLoading] = useState(true);
@@ -16,48 +17,45 @@ export const TrackPlay = () => {
   }, []);
 
   return (
-    <div className="player__track-play track-play">
-      <div className="track-play__contain">
-        <div className="track-play__image">
+    <S.PlayerTrackPlay>
+      <S.TrackPlayContain>
+        <S.TrackPlayImage>
           {loading ? (
             <Skeleton style={{ width: "51", height: "51" }} />
           ) : (
-            <svg className="track-play__svg" alt="music">
+            <S.TrackPlaySvg alt="music">
               <use xlinkHref={`${Icons}#icon-note`} />
-            </svg>
+            </S.TrackPlaySvg>
           )}
-        </div>
-        <div className="track-play__author">
+        </S.TrackPlayImage>
+        <S.TrackPlayAuthor>
           {loading ? (
             <Skeleton style={{ width: "49", height: "15" }} />
           ) : (
-            <a className="track-play__author-link" href="http://">
-              Ты та...
-            </a>
+            <S.TrackPlayAuthorLink>Ты та...</S.TrackPlayAuthorLink>
           )}
-        </div>
-        <div className="track-play__album">
+        </S.TrackPlayAuthor>
+        <S.TrackPlayAlbum>
           {loading ? (
             <Skeleton style={{ width: "49", height: "15" }} />
           ) : (
-            <a className="track-play__album-link" href="http://">
-              Баста
-            </a>
+            <S.TrackPlayAlbumLink href="http://">Баста</S.TrackPlayAlbumLink>
           )}
-        </div>
-      </div>
-      <div className="track-play__like-dis">
-        <div className="track-play__like _btn-icon">
-          <svg className="track-play__like-svg" alt="like">
+        </S.TrackPlayAlbum>
+      </S.TrackPlayContain>
+      <S.TrackPlayLikeDis>
+        <S.TrackPlayLike>
+          <S.TrackPlayLikeSvg alt="like">
             <use xlinkHref={`${Icons}#icon-like`}></use>
-          </svg>
-        </div>
-        <div className="track-play__dislike _btn-icon">
-          <svg className="track-play__dislike-svg" alt="dislike">
+          </S.TrackPlayLikeSvg>
+        </S.TrackPlayLike>
+        <S.TrackPlayDislike>
+          <S.TrackPlayDislikeSvg alt="dislike">
             <use xlinkHref={`${Icons}#icon-dislike`}></use>
-          </svg>
-        </div>
-      </div>
-    </div>
+          </S.TrackPlayDislikeSvg>
+        </S.TrackPlayDislike>
+      </S.TrackPlayLikeDis>
+    </S.PlayerTrackPlay>
   );
 };
+//btn-icon

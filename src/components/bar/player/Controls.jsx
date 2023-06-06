@@ -1,8 +1,9 @@
 import { controlsData } from "./ControlsData";
+import * as S from "./styles";
 
 export const Controls = () => {
   return (
-    <div className="player__controls">
+    <S.PlayerControls>
       {controlsData.map((item) => (
         <div key={item.id} className={item.className}>
           <svg className={item.svgClassName} alt={item.name}>
@@ -10,6 +11,6 @@ export const Controls = () => {
           </svg>
         </div>
       ))}
-    </div>
+    </S.PlayerControls>
   );
 };

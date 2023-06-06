@@ -1,13 +1,15 @@
+import * as S from "./styles";
+
 export const Burger = ({ onClick }) => {
   const changeVisibility = () => {
     onClick();
   };
 
   return (
-    <div onClick={changeVisibility} className="nav__burger burger">
-      <span className="burger__line"></span>
-      <span className="burger__line"></span>
-      <span className="burger__line"></span>
-    </div>
+    <S.NavBurger onClick={changeVisibility}>
+      <S.BurgerLine></S.BurgerLine>
+      <S.BurgerLine></S.BurgerLine>
+      <S.BurgerLine></S.BurgerLine>
+    </S.NavBurger>
   );
 };
