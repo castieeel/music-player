@@ -1,5 +1,5 @@
 import logo from "../../../assets/img/logo.png";
-import * as S from "./styles";
+import * as S from "./_nav.styles";
 
 export const Logo = () => {
   return (

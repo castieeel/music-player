@@ -3,7 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from "react";
-import * as S from "./styles";
+import * as S from "../_bar.styles";
 
 export const TrackPlay = () => {
   const [loading, setLoading] = useState(true);

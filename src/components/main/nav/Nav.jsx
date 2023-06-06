@@ -2,7 +2,7 @@ import { Logo } from "./Logo";
 import { Burger } from "./Burger";
 import { Menu } from "./Menu";
 import React from "react";
-import * as S from "./styles";
+import * as S from "./_nav.styles";
 const { useState } = React;
 
 export const Nav = () => {

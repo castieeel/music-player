@@ -1,5 +1,38 @@
 import styled from "styled-components";
 
+export const Bar = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(28, 28, 28, 0.5);
+`;
+
+export const BarContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const BarPlayerProgress = styled.div`
+  width: 100%;
+  height: 5px;
+  background: #2e2e2e;
+`;
+
+export const BarPlayerBlock = styled.div`
+  height: 73px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const BarPlayer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
 export const PlayerControls = styled.div`
   display: flex;
   flex-direction: row;
@@ -128,3 +161,63 @@ export const VolumeProgressLine = styled.input`
   width: 109px;
 `;
 
+export const PlayerBtnPrev = styled.div`
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  margin-right: 23px;
+`;
+export const PlayerBtnPlay = styled.div`
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  margin-right: 23px;
+`;
+export const PlayerBtnNext = styled.div`
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  margin-right: 28px;
+  fill: #a53939;
+`;
+export const PlayerBtnRepeat = styled.div`
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+`;
+export const PlayerBtnShuffle = styled.div`
+  padding: 5px;
+  display: flex;
+  align-items: center;
+`;
+export const BtnPrevSvg = styled.svg`
+  width: 15px;
+  height: 14px;
+`;
+
+export const BtnPlaySvg = styled.svg`
+  width: 22px;
+  height: 20px;
+  fill: #d9d9d9;
+`;
+
+export const BtnNextSvg = styled.svg`
+  width: 15px;
+  height: 14px;
+  fill: inherit;
+  stroke: #d9d9d9;
+`;
+export const BtnRepeatSvg = styled.svg`
+  width: 18px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+`;
+
+export const BtnShuffleSvg = styled.svg`
+  width: 18px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+`;

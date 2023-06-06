@@ -1,5 +1,5 @@
 import { PlaylistItem } from "./PlaylistItem";
-import * as S from "./styles";
+import * as S from "./_playlist.styles";
 
 export const Playlist = () => {
   return (

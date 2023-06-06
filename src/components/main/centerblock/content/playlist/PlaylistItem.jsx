@@ -2,7 +2,7 @@ import Icons from "../../../../../assets/img/icon/sprite.svg";
 import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonLoading } from "./SkeletonLoading";
-import * as S from "./styles";
+import * as S from "./_playlist.styles";
 
 export const PlaylistItem = (props) => {
   return (

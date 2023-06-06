@@ -68,3 +68,7 @@ export const FilterTitle = styled.div`
   margin-right: 15px;
 `;
 
+export const CenterblockContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

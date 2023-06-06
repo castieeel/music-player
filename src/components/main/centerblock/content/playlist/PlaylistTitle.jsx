@@ -1,5 +1,5 @@
 import Icons from "../../../../../assets/img/icon/sprite.svg";
-import * as S from "./styles";
+import * as S from "./_playlist.styles";
 
 export const PlaylistTitle = () => {
   return (

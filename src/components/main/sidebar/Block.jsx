@@ -3,7 +3,7 @@ import playlist1 from "../../../assets/img/playlist01.png";
 import playlist2 from "../../../assets/img/playlist02.png";
 import playlist3 from "../../../assets/img/playlist03.png";
 import { SidebarItem } from "./SidebarItem";
-import * as S from "./styles";
+import * as S from "./_sidebar.styles";
 
 export const Block = () => {
   return (

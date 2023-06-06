@@ -2,7 +2,7 @@ import { SkeletonTheme } from "react-loading-skeleton";
 import { Main } from "./components/main/Main";
 import { Bar } from "./components/bar/Bar";
 import { Footer } from "./components/footer/Footer";
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 * {
