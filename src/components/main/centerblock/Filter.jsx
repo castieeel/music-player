@@ -1,7 +1,8 @@
-import { Dropdown } from "./dropdown/DropDown";
 import React, { useState, useEffect, useRef } from "react";
+import FilterButton from "./dropdown/FilterButton";
 
 export const Filter = () => {
+  const [activeButton, setActiveButton] = useState("");
   const [open, setOpen] = useState(false);
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
@@ -43,10 +44,22 @@ export const Filter = () => {
 
     setOpen(true);
   };
-  const coords = {
-    left: left,
-    top: top + 47,
+
+  const toggleFilter = (filterName) => {
+    // если состояние activeButton равен значению filterName
+    // это значит, что мы нажали на тот же фильтр, и скрываем блок
+    setActiveButton(activeButton === filterName ? "" : filterName);
   };
+
+  const content = [
+    { id: 1, name: "Тест 1" },
+    { id: 2, name: "Тест 2" },
+    { id: 3, name: "Тест 3" },
+    { id: 4, name: "Тест 4" },
+    { id: 5, name: "Тест 5" },
+    { id: 6, name: "Тест 6" },
+    { id: 7, name: "Тест 7" },
+  ];
 
   return (
     <div
@@ -54,15 +67,30 @@ export const Filter = () => {
       onClick={openDropdown}
       ref={menuRef}
     >
-      <div
-        style={coords}
-        className={`dropdown-menu ${open ? "active" : "inactive"}`}
-      >
-        <Dropdown content={dropdownContent} />
-      </div>
       <div className="filter__title">Искать по:</div>
+      <FilterButton
+        title="исполнителю"
+        isActive={activeButton === "author"}
+        onClick={() => toggleFilter("author")}
+        hideButtons={() => setActiveButton("")}
+        content={content}
+      />
+      <FilterButton
+        title="году"
+        isActive={activeButton === "year"}
+        onClick={() => toggleFilter("year")}
+        hideButtons={() => setActiveButton("")}
+        content={content}
+      />
+      <FilterButton
+        title="жанру"
+        isActive={activeButton === "genre"}
+        onClick={() => toggleFilter("genre")}
+        hideButtons={() => setActiveButton("")}
+        content={content}
+      />
 
-      <div tabIndex={0} className="filter__button button-author _btn-text">
+      {/* <div tabIndex={0} className="filter__button button-author _btn-text">
         исполнителю
       </div>
       <div tabIndex={0} className="filter__button button-year _btn-text">
@@ -70,7 +98,7 @@ export const Filter = () => {
       </div>
       <div tabIndex={0} className="filter__button button-genre _btn-text">
         жанру
-      </div>
+      </div> */}
     </div>
   );
 };
