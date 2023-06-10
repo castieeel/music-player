@@ -1,7 +1,7 @@
 import { Search } from "./Search";
 import { Filter } from "./Filter";
 import { Content } from "./content/Content";
-import * as S from "./_centerblock.styles";
+import * as S from "./centerblock.styles";
 
 export const Centerblock = () => {
   return (

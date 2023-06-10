@@ -30,7 +30,7 @@ export const NavLogoImage = styled.img`
   color: #181818;
 `;
 
-export const NavMenu = styled.img`
+export const NavMenu = styled.div`
   display: block;
   visibility: visible;
 `;

@@ -1,4 +1,4 @@
-import * as S from "./_nav.styles";
+import * as S from "./nav.styles";
 
 export const Burger = ({ onClick }) => {
   const changeVisibility = () => {

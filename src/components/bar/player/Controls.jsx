@@ -1,5 +1,5 @@
 import { controlsData } from "./ControlsData";
-import * as S from "../_bar.styles";
+import * as S from "../bar.styles";
 
 export const Controls = () => {
   return (

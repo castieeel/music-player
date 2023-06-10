@@ -1,5 +1,5 @@
 import Icons from "../../../assets/img/icon/sprite.svg";
-import * as S from "../_bar.styles";
+import * as S from "../bar.styles";
 
 export const controlsData = [
   {

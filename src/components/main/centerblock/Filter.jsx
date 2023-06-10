@@ -1,6 +1,6 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
+import * as S from "./centerblock.styles";
 import FilterButton from "./dropdown/FilterButton";
-import * as S from "./_centerblock.styles";
 
 export const Filter = () => {
   const [activeButton, setActiveButton] = useState("");

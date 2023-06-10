@@ -1,4 +1,4 @@
-import * as S from "./_centerblock.styles";
+import * as S from "./centerblock.styles";
 import Icons from "../../../assets/img/icon/sprite.svg";
 
 export const Search = () => {
