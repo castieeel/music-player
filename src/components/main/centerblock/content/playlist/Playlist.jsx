@@ -1,8 +1,9 @@
 import { PlaylistItem } from "./PlaylistItem";
+import * as S from "./_playlist.styles";
 
 export const Playlist = () => {
   return (
-    <div className="content__playlist playlist">
+    <S.ContentPlaylist>
       <PlaylistItem
         title="Guilt"
         author="Nero"
@@ -63,6 +64,6 @@ export const Playlist = () => {
         album="Soundz Made in Romania"
         time="3:36"
       />
-    </div>
+    </S.ContentPlaylist>
   );
 };

@@ -1,16 +1,17 @@
 import Icons from "../../../../../assets/img/icon/sprite.svg";
+import * as S from "./_playlist.styles";
 
 export const PlaylistTitle = () => {
   return (
-    <div className="content__title playlist-title">
-      <div className="playlist-title__col col01">Трек</div>
-      <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-      <div className="playlist-title__col col03">АЛЬБОМ</div>
-      <div className="playlist-title__col col04">
-        <svg className="playlist-title__svg" alt="time">
+    <S.ContentTitle>
+      <S.PlaylistTitleCol01>Трек</S.PlaylistTitleCol01>
+      <S.PlaylistTitleCol02>ИСПОЛНИТЕЛЬ</S.PlaylistTitleCol02>
+      <S.PlaylistTitleCol03>АЛЬБОМ</S.PlaylistTitleCol03>
+      <S.PlaylistTitleCol04>
+        <S.PlaylistTitleSvg alt="time">
           <use xlinkHref={`${Icons}#icon-watch`}></use>
-        </svg>
-      </div>
-    </div>
+        </S.PlaylistTitleSvg>
+      </S.PlaylistTitleCol04>
+    </S.ContentTitle>
   );
 };

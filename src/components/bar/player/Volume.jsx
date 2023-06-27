@@ -1,22 +1,23 @@
 import Icons from "../../../assets/img/icon/sprite.svg";
+import * as S from "../bar.styles";
 
 export const Volume = () => {
   return (
-    <div className="bar__volume-block volume">
-      <div className="volume__content">
-        <div className="volume__image">
-          <svg className="volume__svg" alt="volume">
+    <S.BarVolumeBlock>
+      <S.VolumeContent>
+        <S.VolumeImage>
+          <S.VolumeSvg alt="volume">
             <use xlinkHref={`${Icons}#icon-volume`}></use>
-          </svg>
-        </div>
-        <div className="volume__progress _btn">
-          <input
-            className="volume__progress-line _btn"
+          </S.VolumeSvg>
+        </S.VolumeImage>
+        <S.VolumeProgress>
+          <S.VolumeProgressLine
             type="range"
             name="range"
-          ></input>
-        </div>
-      </div>
-    </div>
+          ></S.VolumeProgressLine>
+        </S.VolumeProgress>
+      </S.VolumeContent>
+    </S.BarVolumeBlock>
   );
 };
+//_btn

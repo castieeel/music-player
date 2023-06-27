@@ -1,13 +1,15 @@
 import { Search } from "./Search";
 import { Filter } from "./Filter";
 import { Content } from "./content/Content";
+import * as S from "./centerblock.styles";
+
 export const Centerblock = () => {
   return (
-    <div className="main__centerblock centerblock">
+    <S.MainCenterblock>
       <Search />
-      <h2 className="centerblock__h2">Треки</h2>
+      <S.CenterblockH2>Треки</S.CenterblockH2>
       <Filter />
       <Content />
-    </div>
+    </S.MainCenterblock>
   );
 };

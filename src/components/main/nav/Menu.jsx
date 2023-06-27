@@ -1,23 +1,24 @@
+import { Link } from "react-router-dom";
+import * as S from "./nav.styles";
+
 export const Menu = () => {
   return (
-    <div className="nav__menu menu">
-      <ul className="menu__list">
-        <li className="menu__item">
-          <a href="http://" className="menu__link">
-            Главное
-          </a>
-        </li>
-        <li className="menu__item">
-          <a href="http://" className="menu__link">
-            Мой плейлист
-          </a>
-        </li>
-        <li className="menu__item">
-          <a href="http://" className="menu__link">
-            Войти
-          </a>
-        </li>
-      </ul>
-    </div>
+    <S.NavMenu>
+      <S.NavMenuList>
+        <S.NavMenuItem>
+          <Link className="App-link" to="/">
+            <S.NavMenuLink>Главное</S.NavMenuLink>
+          </Link>
+        </S.NavMenuItem>
+        <S.NavMenuItem>
+          <Link className="App-link" to="/playlist">
+            <S.NavMenuLink>Мой плейлист</S.NavMenuLink>
+          </Link>
+        </S.NavMenuItem>
+        <S.NavMenuItem>
+          <S.NavMenuLink>Войти</S.NavMenuLink>
+        </S.NavMenuItem>
+      </S.NavMenuList>
+    </S.NavMenu>
   );
 };

@@ -1,20 +1,21 @@
 import { Controls } from "./player/Controls";
 import { TrackPlay } from "./player/TrackPlay";
 import { Volume } from "./player/Volume";
+import * as S from "./bar.styles";
 
 export const Bar = () => {
   return (
-    <div className="bar">
-      <div className="bar__content">
-        <div className="bar__player-progress"></div>
-        <div className="bar__player-block">
-          <div className="bar__player player">
+    <S.Bar>
+      <S.BarContent>
+        <S.BarPlayerProgress></S.BarPlayerProgress>
+        <S.BarPlayerBlock>
+          <S.BarPlayer>
             <Controls />
             <TrackPlay />
-          </div>
+          </S.BarPlayer>
           <Volume />
-        </div>
-      </div>
-    </div>
+        </S.BarPlayerBlock>
+      </S.BarContent>
+    </S.Bar>
   );
 };

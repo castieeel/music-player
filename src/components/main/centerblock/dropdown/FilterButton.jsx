@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./filter-button.scss";
 import FilterContent from "./FilterContent";
+import * as S from "../centerblock.styles";
 
 function FilterButton({ title, content, isActive, onClick, hideButtons }) {
   /* Счетчик выбранных элементов из выпадающего меню */
@@ -8,7 +8,6 @@ function FilterButton({ title, content, isActive, onClick, hideButtons }) {
 
   const selectedFilters = selected.length;
   /* Определяем стиль кнопки */
-  const buttonStyle = isActive ? "active" : "";
 
   const handleSelect = (id) => {
     if (selected.includes(id)) {
@@ -20,29 +19,21 @@ function FilterButton({ title, content, isActive, onClick, hideButtons }) {
 
   return (
     /* Кнопка фильтра */
-    <div className="filter__wrapper">
+    <S.FilterWrapper>
       {selectedFilters >= 1 ? (
-        <div className="filter__button__badge">{selectedFilters}</div>
+        <S.FilterButtonBadge>{selectedFilters}</S.FilterButtonBadge>
       ) : null}
-      <button
-        className={`filter__button__header ${buttonStyle}`}
-        type="button"
-        onClick={onClick}
-        isActive={isActive}
-      >
+      <S.Button type="button" onClick={onClick} isActive={isActive}>
         {title}
-      </button>
+      </S.Button>
       {/* Выпадающее меню */}
       {isActive ? (
-        <div
-          className="filter__button__header__box"
-          onMouseLeave={() => hideButtons()}
-        >
+        <S.FilterButtonHeaderBox onMouseLeave={() => hideButtons()}>
           {/* Контент выпадающего меню */}
           <FilterContent content={content} onSelect={handleSelect} />
-        </div>
+        </S.FilterButtonHeaderBox>
       ) : null}
-    </div>
+    </S.FilterWrapper>
   );
 }
 

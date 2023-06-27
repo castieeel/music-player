@@ -1,21 +1,18 @@
 import React from "react";
+import * as S from "../centerblock.styles";
 
 const FilterContent = ({ content, onSelect }) => {
   console.log(content);
   const filterItem = content.map((item) => (
-    <li
-      className="filter__item dropdownItem"
-      onClick={() => onSelect(item.id)}
-      key={item.id}
-    >
+    <S.FilterItem onClick={() => onSelect(item.id)} key={item.id}>
       {item.name}
-    </li>
+    </S.FilterItem>
   ));
 
   return (
-    <div className="filter__button__header__box__content">
-      <ul>{filterItem}</ul>
-    </div>
+    <S.FilterButtonHeaderBox>
+      <S.FilterButtonHeaderBoxUl>{filterItem}</S.FilterButtonHeaderBoxUl>
+    </S.FilterButtonHeaderBox>
   );
 };
 

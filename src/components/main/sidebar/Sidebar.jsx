@@ -1,10 +1,12 @@
 import { Personal } from "./Personal";
 import { Block } from "./Block";
+import * as S from "./_sidebar.styles";
+
 export const Sidebar = () => {
   return (
-    <div className="main__sidebar sidebar">
+    <S.Siderbar>
       <Personal />
       <Block />
-    </div>
+    </S.Siderbar>
   );
 };

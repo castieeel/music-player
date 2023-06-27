@@ -1,15 +1,16 @@
 import { controlsData } from "./ControlsData";
+import * as S from "../bar.styles";
 
 export const Controls = () => {
   return (
-    <div className="player__controls">
+    <S.PlayerControls>
       {controlsData.map((item) => (
-        <div key={item.id} className={item.className}>
-          <svg className={item.svgClassName} alt={item.name}>
+        <item.className key={item.id}>
+          <item.svgClassName alt={item.name}>
             <use xlinkHref={item.svg}></use>
-          </svg>
-        </div>
+          </item.svgClassName>
+        </item.className>
       ))}
-    </div>
+    </S.PlayerControls>
   );
 };

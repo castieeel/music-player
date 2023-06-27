@@ -2,47 +2,44 @@ import Icons from "../../../../../assets/img/icon/sprite.svg";
 import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonLoading } from "./SkeletonLoading";
+import * as S from "./_playlist.styles";
 
 export const PlaylistItem = (props) => {
   return (
-    <div className="playlist__item">
-      <div className="playlist__track track">
-        <div className="track__title">
-          <div className="track__title-image">
-            <svg className="track__title-svg" alt="music">
+    <S.PlaylistItemS>
+      <S.PlaylistTrack>
+        <S.TrackTitle>
+          <S.TrackTitleImage>
+            <S.TrackTitleSvg alt="music">
               <use xlinkHref={`${Icons}#icon-note`}></use>
-            </svg>
-          </div>
-          <div className="track__title-text">
+            </S.TrackTitleSvg>
+          </S.TrackTitleImage>
+          <S.TrackTitleText>
             <SkeletonLoading width={350} height={24}>
-              <a className="track__title-link" href="http://">
+              <S.TrackTitleLink href="http://">
                 {props.title}
-                <span className="track__title-span"></span>
-              </a>
+                <S.TrackTitleSpan></S.TrackTitleSpan>
+              </S.TrackTitleLink>
             </SkeletonLoading>
-          </div>
-        </div>
-        <div className="track__author">
+          </S.TrackTitleText>
+        </S.TrackTitle>
+        <S.TrackAuthor>
           <SkeletonLoading width={300} height={25}>
-            <a className="track__author-link" href="http://">
-              {props.author}
-            </a>
+            <S.TrackAuthorLink href="http://">{props.author}</S.TrackAuthorLink>
           </SkeletonLoading>
-        </div>
-        <div className="track__album">
+        </S.TrackAuthor>
+        <S.TrackAlbum>
           <SkeletonLoading width={245} height={25}>
-            <a className="track__album-link" href="http://">
-              {props.album}
-            </a>
+            <S.TrackAlbumLink href="http://">{props.album}</S.TrackAlbumLink>
           </SkeletonLoading>
-        </div>
-        <div className="track__time">
-          <svg className="track__time-svg" alt="time">
+        </S.TrackAlbum>
+        <S.TrackTime>
+          <S.TrackTimeSvg alt="time">
             <use xlinkHref={`${Icons}#icon-like`}></use>
-          </svg>
-          <span className="track__time-text">{props.time} </span>
-        </div>
-      </div>
-    </div>
+          </S.TrackTimeSvg>
+          <S.TrackTimeText>{props.time} </S.TrackTimeText>
+        </S.TrackTime>
+      </S.PlaylistTrack>
+    </S.PlaylistItemS>
   );
 };
