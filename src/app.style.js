@@ -55,7 +55,8 @@ body {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
-  background-color: #383838;
+  background-color:  ${(props) =>
+    props.theme === "dark" ? "#383838" : "#FFFFFF"};
 }
 
 .container {
@@ -63,7 +64,8 @@ body {
   height: 100vh;
   margin: 0 auto;
   position: relative;
-  background-color: #181818;
+  background-color:${(props) =>
+    props.theme === "dark" ? "#181818" : "#FFFFFF"}; 
 }
 
 // ========== hover ========

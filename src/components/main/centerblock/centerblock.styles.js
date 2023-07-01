@@ -28,7 +28,7 @@ export const CenterblockSearchSvg = styled.svg`
   width: 17px;
   height: 17px;
   margin-right: 5px;
-  stroke: #ffffff;
+  stroke: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
   fill: transparent;
 `;
 export const CenterblockSearchText = styled.input`
@@ -40,11 +40,11 @@ export const CenterblockSearchText = styled.input`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
 
   &::placeholder {
     background-color: transparent;
-    color: #ffffff;
+    color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -66,6 +66,7 @@ export const FilterTitle = styled.div`
   font-size: 16px;
   line-height: 24px;
   margin-right: 15px;
+  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
 `;
 
 export const CenterblockContent = styled.div`
@@ -97,8 +98,6 @@ export const FilterItem = styled.li`
     text-decoration: underline;
   }
 }`;
-
-
 
 export const FilterButtonBadge = styled.div`
   position: absolute;
@@ -153,7 +152,7 @@ export const FilterButtonHeaderBoxUl = styled.ul`
     height: 65px;
   }
   &::-webkit-scrollbar-thumb {
-    background: #ffffff;
+    background: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
     border-radius: 10px;
   }
 `;
@@ -165,12 +164,14 @@ export const Button = styled.button`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #fff;
+  border: 1px solid
+    ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
   border-radius: 60px;
   padding: 6px 20px;
   position: relative;
-  color: #fff;
-  background-color: #181818;
+  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  background-color: ${(props) =>
+    props.theme === "dark" ? "#181818" : "#FFFFFF"};
   cursor: pointer;
   &:hover {
     border-color: #d9b6ff;
