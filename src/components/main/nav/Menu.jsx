@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import * as S from "./nav.styles";
 import { useThemeContext } from "../../../contexts/theme";
-import sprite from "../../../../src/assets/img/icon/sprite.svg";
-
 export const Menu = () => {
-  const { toggleTheme } = useThemeContext();
-  const { theme } = useThemeContext();
+  const { theme, toggleTheme } = useThemeContext();
+
+  console.log(theme);
   return (
     <S.NavMenu>
       <S.NavMenuList>
@@ -24,16 +23,9 @@ export const Menu = () => {
         </S.NavMenuItem>
       </S.NavMenuList>
       {/* СМЕНА ТЕМЫ*/}
-      <S.BtnThemeSvg>
-        <svg alt="theme" onClick={toggleTheme}>
-          <use
-            xlinkHref={
-              theme === "dark"
-                ? `${sprite}#theme-dark`
-                : `${sprite}#theme-light`
-            }
-          />
-        </svg>
+
+      <S.BtnThemeSvg onClick={toggleTheme}>
+        <img src={theme.themeButtonPng} alt="theme switcher" />
       </S.BtnThemeSvg>
     </S.NavMenu>
   );

@@ -1,20 +1,23 @@
 import React, { useContext } from "react";
+import themeDarkPng from "../assets/img/themeDarkPng.png";
+import themeLightPng from "../assets/img/themeLightPng.png";
 
 export const themes = {
-  light: "light",
-  dark: "dark",
+  light: {
+    name: "light",
+    color: "#181818",
+    background: "#FFFFFF",
+    navBackgroundColor: "#F6F5F3",
+    themeButtonPng: themeLightPng,
+  },
+  dark: {
+    name: "dark",
+    color: "#FFFFFF",
+    background: "#383838",
+    navBackgroundColor: "#181818",
+    themeButtonPng: themeDarkPng,
+  },
 };
-
-// export const themes = {
-//   light: {
-//     color: "#181818",
-//     background: "#FFFFFF",
-//   },
-//   dark: {
-//     color: "#FFFFFF",
-//     background: "#383838",
-//   },
-// };
 
 export const ThemeContext = React.createContext({
   theme: themes.dark,
@@ -28,3 +31,5 @@ export const useThemeContext = () => {
 
   return theme;
 };
+
+export default ThemeContext;

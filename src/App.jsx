@@ -15,9 +15,7 @@ export const App = () => {
       setCurrentTheme(themes.light);
       return;
     }
-
     setCurrentTheme(themes.dark);
-    console.log(currentTheme);
   };
 
   return (

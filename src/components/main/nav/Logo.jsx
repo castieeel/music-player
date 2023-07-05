@@ -1,19 +1,17 @@
 import logo_dark from "../../../assets/img/logo_dark.png";
 import logo_light from "../../../assets/img/logo_light.png";
 import * as S from "./nav.styles";
-import { ThemeContext } from "../../../contexts/theme";
+import { useThemeContext } from "../../../contexts/theme";
 
 export const Logo = () => {
+  const { theme } = useThemeContext();
+  console.log(theme.name);
   return (
-    <ThemeContext.Consumer>
-      {({ theme }) => (
-        <S.NavLogo>
-          <S.NavLogoImage
-            src={theme === "dark" ? logo_dark : logo_light}
-            alt="logo"
-          ></S.NavLogoImage>
-        </S.NavLogo>
-      )}
-    </ThemeContext.Consumer>
+    <S.NavLogo>
+      <S.NavLogoImage
+        src={theme.name === "dark" ? logo_dark : logo_light}
+        alt="logo"
+      ></S.NavLogoImage>
+    </S.NavLogo>
   );
 };

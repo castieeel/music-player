@@ -5,10 +5,7 @@ export const Bar = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  background: ${(props) =>
-    props.theme === "dark"
-      ? "rgba(28, 28, 28, 0.5)"
-      : "rgba(245, 245, 245, 0.5)"};
+  background: rgba(28, 28, 28, 0.5);
 `;
 
 export const BarContent = styled.div`
@@ -58,8 +55,7 @@ export const TrackPlayContain = styled.div`
 export const TrackPlayImage = styled.div`
   width: 51px;
   height: 51px;
-  background-color: ${(props) =>
-    props.theme === "dark" ? "#313131" : "#F6F4F4"};
+  background-color: #313131;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +80,7 @@ export const TrackPlayAuthorLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  color: #ffffff;
   white-space: nowrap;
 `;
 
@@ -98,7 +94,7 @@ export const TrackPlayAlbumLink = styled.a`
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  color: #ffffff;
 `;
 
 export const TrackPlayLikeDis = styled.div`
@@ -182,7 +178,6 @@ export const PlayerBtnNext = styled.div`
   display: flex;
   align-items: center;
   margin-right: 28px;
-  fill: #a53939;
 `;
 export const PlayerBtnRepeat = styled.div`
   padding: 5px;

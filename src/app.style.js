@@ -48,15 +48,14 @@ body {
   width: 100%;
   height: 100%;
   font-family: "StratosSkyeng", sans-serif;
-  color: #ffffff;
+  color: ${(props) => props.theme.color};
 }
 
 .wrapper {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
-  background-color:  ${(props) =>
-    props.theme === "dark" ? "#383838" : "#FFFFFF"};
+  background: ${(props) => props.theme.background};
 }
 
 .container {
@@ -64,8 +63,7 @@ body {
   height: 100vh;
   margin: 0 auto;
   position: relative;
-  background-color:${(props) =>
-    props.theme === "dark" ? "#181818" : "#FFFFFF"}; 
+  background-color:#181818; 
 }
 
 // ========== hover ========
