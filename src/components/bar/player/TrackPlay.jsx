@@ -4,10 +4,11 @@ import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from "react";
 import * as S from "../bar.styles";
+import { useThemeContext } from "../../../contexts/theme";
 
 export const TrackPlay = () => {
   const [loading, setLoading] = useState(true);
-
+  const { theme } = useThemeContext();
   //выполняется при первом рендере
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,12 +17,10 @@ export const TrackPlay = () => {
     return () => clearTimeout(timer);
   }, []);
 
-
-
   return (
     <S.PlayerTrackPlay>
       <S.TrackPlayContain>
-        <S.TrackPlayImage>
+        <S.TrackPlayImage theme={theme}>
           {loading ? (
             <Skeleton style={{ width: "51", height: "51" }} />
           ) : (
@@ -34,24 +33,28 @@ export const TrackPlay = () => {
           {loading ? (
             <Skeleton style={{ width: "49", height: "15" }} />
           ) : (
-            <S.TrackPlayAuthorLink>Ты та...</S.TrackPlayAuthorLink>
+            <S.TrackPlayAuthorLink theme={theme}>
+              Ты та...
+            </S.TrackPlayAuthorLink>
           )}
         </S.TrackPlayAuthor>
         <S.TrackPlayAlbum>
           {loading ? (
             <Skeleton style={{ width: "49", height: "15" }} />
           ) : (
-            <S.TrackPlayAlbumLink href="http://">Баста</S.TrackPlayAlbumLink>
+            <S.TrackPlayAlbumLink theme={theme} href="http://">
+              Баста
+            </S.TrackPlayAlbumLink>
           )}
         </S.TrackPlayAlbum>
       </S.TrackPlayContain>
-      <S.TrackPlayLikeDis>
+      <S.TrackPlayLikeDis theme={theme}>
         <S.TrackPlayLike>
-          <S.TrackPlayLikeSvg alt="like">
+          <S.TrackPlayLikeSvg theme={theme} alt="like">
             <use xlinkHref={`${Icons}#icon-like`}></use>
           </S.TrackPlayLikeSvg>
         </S.TrackPlayLike>
-        <S.TrackPlayDislike>
+        <S.TrackPlayDislike theme={theme}>
           <S.TrackPlayDislikeSvg alt="dislike">
             <use xlinkHref={`${Icons}#icon-dislike`}></use>
           </S.TrackPlayDislikeSvg>

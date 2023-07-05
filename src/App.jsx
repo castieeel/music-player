@@ -23,7 +23,7 @@ export const App = () => {
       <div className="wrapper">
         <SkeletonTheme baseColor="#313131" highlightColor="#525252">
           <div className="container">
-            <GlobalStyle />
+            <GlobalStyle theme={currentTheme}/>
             <AppRoutes />
             <Main />
             <Bar />

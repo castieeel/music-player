@@ -28,7 +28,7 @@ export const CenterblockSearchSvg = styled.svg`
   width: 17px;
   height: 17px;
   margin-right: 5px;
-  stroke: #ffffff;
+  stroke: ${(props) => props.theme.color};
   fill: transparent;
 `;
 export const CenterblockSearchText = styled.input`
@@ -40,11 +40,11 @@ export const CenterblockSearchText = styled.input`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: ${(props) => props.theme.color};
 
   &::placeholder {
     background-color: transparent;
-    color: #ffffff;
+    color: ${(props) => props.theme.color};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -66,7 +66,7 @@ export const FilterTitle = styled.div`
   font-size: 16px;
   line-height: 24px;
   margin-right: 15px;
-  color: #ffffff;
+  color: ${(props) => props.theme.color};
 `;
 
 export const CenterblockContent = styled.div`
@@ -158,18 +158,16 @@ export const FilterButtonHeaderBoxUl = styled.ul`
 `;
 
 export const Button = styled.button`
-  border-color: #ad61ff;
-  color: #ad61ff;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #ffffff;
+  border: 1px solid ${(props) => props.theme.color};
   border-radius: 60px;
   padding: 6px 20px;
   position: relative;
-  color: #ffffff;
-  background-color: #181818;
+  color: ${(props) => props.theme.color};
+  background-color: ${(props) => props.theme.color};
   cursor: pointer;
   &:hover {
     border-color: #d9b6ff;

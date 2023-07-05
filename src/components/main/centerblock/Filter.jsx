@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import * as S from "./centerblock.styles";
 import FilterButton from "./dropdown/FilterButton";
+import { useThemeContext } from "../../../contexts/theme";
 
 export const Filter = () => {
   const [activeButton, setActiveButton] = useState("");
+  const { theme } = useThemeContext();
 
   const toggleFilter = (filterName) => {
     // если состояние activeButton равен значению filterName
@@ -25,6 +27,7 @@ export const Filter = () => {
     <S.CenterblockFilter>
       <S.FilterTitle>Искать по:</S.FilterTitle>
       <FilterButton
+        theme={theme}
         title="исполнителю"
         isActive={activeButton === "author"}
         onClick={() => toggleFilter("author")}
@@ -32,6 +35,7 @@ export const Filter = () => {
         content={content}
       />
       <FilterButton
+        theme={theme}
         title="году"
         isActive={activeButton === "year"}
         onClick={() => toggleFilter("year")}
@@ -39,6 +43,7 @@ export const Filter = () => {
         content={content}
       />
       <FilterButton
+        theme={theme}
         title="жанру"
         isActive={activeButton === "genre"}
         onClick={() => toggleFilter("genre")}

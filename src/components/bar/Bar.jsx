@@ -3,12 +3,14 @@ import React, { useState, useEffect, useRef } from "react";
 import Icons from "../../assets/img/icon/sprite.svg";
 import { TrackPlay } from "./player/TrackPlay";
 import { Volume } from "./player/Volume";
+import { useThemeContext } from "../../contexts/theme";
 
 export const Bar = () => {
   const [activeMusic, setActiveMusic] = useState(false);
   const svgPlay = activeMusic ? `${Icons}#icon-pause` : `${Icons}#icon-play`;
   const audioRef = useRef(null);
   const progressRef = useRef();
+  const { theme } = useThemeContext();
 
   const ProgressChange = () => {
     audioRef.current.currentTime =
@@ -93,8 +95,12 @@ export const Bar = () => {
           <S.BarPlayer>
             <S.PlayerControls>
               {controlsData.map((item) => (
-                <item.className key={item.id} onClick={item.handleClick}>
-                  <item.svgClassName alt={item.name}>
+                <item.className
+                  theme={theme}
+                  key={item.id}
+                  onClick={item.handleClick}
+                >
+                  <item.svgClassName theme={theme} alt={item.name}>
                     <use xlinkHref={item.svg}></use>
                   </item.svgClassName>
                 </item.className>

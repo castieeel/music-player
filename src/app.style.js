@@ -63,7 +63,7 @@ body {
   height: 100vh;
   margin: 0 auto;
   position: relative;
-  background-color:#181818; 
+  background-color: ${(props) => props.theme.backgroundContainer};
 }
 
 // ========== hover ========
@@ -89,14 +89,14 @@ body {
 
 ._btn-icon:active svg {
   fill: transparent;
-  stroke: #ffffff;
+  stroke:  ${(props) => props.theme.color};
   cursor: pointer;
 }
 
 ._btn-icon:active .track-play__like-svg,
 ._btn-icon:active .track-play__dislike-svg {
   fill: #696969;
-  stroke: #ffffff;
+  stroke:  ${(props) => props.theme.color};
   cursor: pointer;
 }
 `;

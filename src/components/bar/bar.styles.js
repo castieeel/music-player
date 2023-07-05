@@ -5,7 +5,7 @@ export const Bar = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(28, 28, 28, 0.5);
+  background: ${(props) => props.theme.backgroundBar};
 `;
 
 export const BarContent = styled.div`
@@ -55,7 +55,7 @@ export const TrackPlayContain = styled.div`
 export const TrackPlayImage = styled.div`
   width: 51px;
   height: 51px;
-  background-color: #313131;
+  background-color: ${(props) => props.theme.albumBarColor};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +80,7 @@ export const TrackPlayAuthorLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: ${(props) => props.theme.color};
   white-space: nowrap;
 `;
 
@@ -94,7 +94,7 @@ export const TrackPlayAlbumLink = styled.a`
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
-  color: #ffffff;
+  color: ${(props) => props.theme.color};
 `;
 
 export const TrackPlayLikeDis = styled.div`
@@ -108,14 +108,14 @@ export const TrackPlayLikeSvg = styled.svg`
   width: 14px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
+  stroke: ${(props) => props.theme.playlistColor};
 `;
 
 export const TrackPlayDislikeSvg = styled.svg`
   width: 14.34px;
   height: 13px;
   fill: transparent;
-  stroke: #696969;
+  stroke: ${(props) => props.theme.playlistColor};
 `;
 
 export const TrackPlayLike = styled.div`
@@ -193,32 +193,32 @@ export const PlayerBtnShuffle = styled.div`
 export const BtnPrevSvg = styled.svg`
   width: 15px;
   height: 14px;
+  fill: ${(props) => props.theme.btnBarColor};
 `;
 
 export const BtnPlaySvg = styled.svg`
   width: 22px;
   height: 20px;
-  fill: #d9d9d9;
+  fill: ${(props) => props.theme.btnBarColor};
 `;
 
 export const BtnNextSvg = styled.svg`
   width: 15px;
   height: 14px;
-  fill: inherit;
-  stroke: #d9d9d9;
+  fill: ${(props) => props.theme.btnBarColor};
 `;
 export const BtnRepeatSvg = styled.svg`
   width: 18px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
+  stroke: ${(props) => props.theme.playlistColor};
 `;
 
 export const BtnShuffleSvg = styled.svg`
   width: 18px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
+  stroke: ${(props) => props.theme.playlistColor};
 `;
 
 export const audio = styled.audio`

@@ -5,10 +5,10 @@ import { useThemeContext } from "../../../contexts/theme";
 
 export const Logo = () => {
   const { theme } = useThemeContext();
-  console.log(theme.name);
   return (
     <S.NavLogo>
       <S.NavLogoImage
+        theme={theme}
         src={theme.name === "dark" ? logo_dark : logo_light}
         alt="logo"
       ></S.NavLogoImage>
