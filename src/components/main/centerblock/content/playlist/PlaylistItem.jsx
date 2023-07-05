@@ -3,37 +3,44 @@ import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonLoading } from "./SkeletonLoading";
 import * as S from "./_playlist.styles";
+import { useThemeContext } from "../../../../../contexts/theme";
 
 export const PlaylistItem = (props) => {
+  const { theme } = useThemeContext();
+
   return (
-    <S.PlaylistItemS>
-      <S.PlaylistTrack>
-        <S.TrackTitle>
-          <S.TrackTitleImage>
-            <S.TrackTitleSvg alt="music">
+    <S.PlaylistItemS theme={theme}>
+      <S.PlaylistTrack theme={theme}>
+        <S.TrackTitle theme={theme}>
+          <S.TrackTitleImage theme={theme}>
+            <S.TrackTitleSvg alt="music" theme={theme}>
               <use xlinkHref={`${Icons}#icon-note`}></use>
             </S.TrackTitleSvg>
           </S.TrackTitleImage>
-          <S.TrackTitleText>
+          <S.TrackTitleText theme={theme}>
             <SkeletonLoading width={350} height={24}>
-              <S.TrackTitleLink href="http://">
+              <S.TrackTitleLink theme={theme} href="http://">
                 {props.title}
                 <S.TrackTitleSpan></S.TrackTitleSpan>
               </S.TrackTitleLink>
             </SkeletonLoading>
           </S.TrackTitleText>
         </S.TrackTitle>
-        <S.TrackAuthor>
+        <S.TrackAuthor theme={theme}>
           <SkeletonLoading width={300} height={25}>
-            <S.TrackAuthorLink href="http://">{props.author}</S.TrackAuthorLink>
+            <S.TrackAuthorLink href="http://" theme={theme}>
+              {props.author}
+            </S.TrackAuthorLink>
           </SkeletonLoading>
         </S.TrackAuthor>
-        <S.TrackAlbum>
+        <S.TrackAlbum theme={theme}>
           <SkeletonLoading width={245} height={25}>
-            <S.TrackAlbumLink href="http://">{props.album}</S.TrackAlbumLink>
+            <S.TrackAlbumLink href="http://" theme={theme}>
+              {props.album}
+            </S.TrackAlbumLink>
           </SkeletonLoading>
         </S.TrackAlbum>
-        <S.TrackTime>
+        <S.TrackTime theme={theme}>
           <S.TrackTimeSvg alt="time">
             <use xlinkHref={`${Icons}#icon-like`}></use>
           </S.TrackTimeSvg>

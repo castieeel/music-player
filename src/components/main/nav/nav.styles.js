@@ -13,8 +13,7 @@ export const BurgerLine = styled.div`
   display: inline-block;
   width: 100%;
   height: 1px;
-  background-color: ${(props) =>
-    props.theme === "dark" ? "#FFFFFF" : "#181818"};
+  background-color: ${(props) => props.theme.color};
 `;
 
 export const NavLogo = styled.div`
@@ -28,7 +27,6 @@ export const NavLogo = styled.div`
 export const NavLogoImage = styled.img`
   width: 113.33px;
   height: 17px;
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
 `;
 
 export const NavMenu = styled.div`
@@ -44,7 +42,7 @@ export const NavMenuItem = styled.li`
   margin-bottom: 16px;
 `;
 export const NavMenuLink = styled.a`
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  color: ${(props) => props.theme.color};
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -52,8 +50,7 @@ export const NavMenuLink = styled.a`
 
 export const MainNav = styled.nav`
   width: 244px;
-  background-color: ${(props) =>
-    props.theme === "dark" ? "#181818" : "#F6F5F3"};
+  background-color: ${(props) => props.theme.navBackgroundColor};
   padding: 20px 0 20px 36px;
 `;
 

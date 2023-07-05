@@ -28,7 +28,7 @@ export const CenterblockSearchSvg = styled.svg`
   width: 17px;
   height: 17px;
   margin-right: 5px;
-  stroke: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  stroke: ${(props) => props.theme.color};
   fill: transparent;
 `;
 export const CenterblockSearchText = styled.input`
@@ -40,11 +40,11 @@ export const CenterblockSearchText = styled.input`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  color: ${(props) => props.theme.color};
 
   &::placeholder {
     background-color: transparent;
-    color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+    color: ${(props) => props.theme.color};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -66,7 +66,7 @@ export const FilterTitle = styled.div`
   font-size: 16px;
   line-height: 24px;
   margin-right: 15px;
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  color: ${(props) => props.theme.color};
 `;
 
 export const CenterblockContent = styled.div`
@@ -152,26 +152,22 @@ export const FilterButtonHeaderBoxUl = styled.ul`
     height: 65px;
   }
   &::-webkit-scrollbar-thumb {
-    background: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+    background: #ffffff;
     border-radius: 10px;
   }
 `;
 
 export const Button = styled.button`
-  border-color: ${(props) => (props.isActive ? "#AD61FF" : "#FFFFFF")};
-  color: ${(props) => (props.isActive ? "#AD61FF" : "#FFFFFF")};
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid
-    ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  border: 1px solid ${(props) => props.theme.color};
   border-radius: 60px;
   padding: 6px 20px;
   position: relative;
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
-  background-color: ${(props) =>
-    props.theme === "dark" ? "#181818" : "#FFFFFF"};
+  color: ${(props) => props.theme.color};
+  background-color: ${(props) => props.theme.color};
   cursor: pointer;
   &:hover {
     border-color: #d9b6ff;
