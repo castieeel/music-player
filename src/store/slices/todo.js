@@ -1,8 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export const filters = {
+  ALL: "ALL",
+  DONE: "DONE",
+  ACTIVE: "ACTIVE",
+};
+
 const initialState = {
   allIds: [],
   byIds: {},
+  filterBy: filters.ALL,
 };
 
 let nextTodoId = 0;
@@ -10,6 +17,7 @@ let nextTodoId = 0;
 export const todoSlice = createSlice({
   name: "todo",
   initialState,
+
   // Поле 'reducers' позволяет нам разметить все необходимые редьюсеры и сгенерировать необходимые связанные экшены
   reducers: {
     addTodo: (state, action) => {
@@ -22,14 +30,23 @@ export const todoSlice = createSlice({
 
       state.byIds[id] = {
         content: action.payload,
-        complete: false,
+        completed: false,
       };
     },
 
-    removeTodo: (state, action) => {
-      const { id } = action.payload;
+    removeTodo: (state, { payload }) => {
+      const id = payload.id;
 
-      state.allIds = state.allIds.filter((item) => item.id !== id);
+      // Удалить todo из allIds массива
+      const allIds = state.allIds.filter((todoId) => todoId !== id);
+      state.allIds = allIds;
+
+      // Удалить todo из byIds объекта
+      delete state.byIds[id];
+    },
+
+    filterBy(state, action) {
+      state.filterBy = action.payload;
     },
 
     toggleCompleteness: (state, { payload }) => {
@@ -42,6 +59,7 @@ export const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, removeTodo, toggleCompleteness } = todoSlice.actions;
+export const { addTodo, removeTodo, toggleCompleteness, filterBy } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;

@@ -18,16 +18,18 @@ export const Todo = ({ todo }) => {
   };
 
   return (
-    <li className={styles.item} onClick={toggleTodoItem}>
-      {todo.completed ? "👌" : "👋"}{" "}
-      <span
-        className={cx({
-          [styles.completed]: todo.completed,
-        })}
-      >
-        {todo.content}
-      </span>
+    <>
+      <li className={styles.item} onClick={toggleTodoItem}>
+        {todo.completed ? "👌" : "👋"}{" "}
+        <span
+          className={cx({
+            [styles.completed]: todo.completed,
+          })}
+        >
+          {todo.content}
+        </span>
+      </li>
       <button onClick={removeTodoItem}>❌Delete</button>
-    </li>
+    </>
   );
 };
