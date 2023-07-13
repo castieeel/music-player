@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { todosSelector } from "../../store/selectors/todo";
+import { filterSelector, todosSelector } from "../../store/selectors/todo";
 import { Todo } from "./todo";
 import { filters, filterBy } from "../../store/slices/todo";
 import { useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ import styles from "./index.module.css";
 
 export const TodoList = () => {
   const todos = useSelector(todosSelector);
-  const filter = useSelector((state) => state.todos.filterBy);
+  const filter = useSelector(filterSelector);
   const dispatch = useDispatch();
 
   const filteredTodo = () => {
