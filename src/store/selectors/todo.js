@@ -19,5 +19,3 @@ export const todoByIdSelector = (store, id) => {
 
 export const todosSelector = (store) =>
   todoIdsSelector(store).map((id) => todoByIdSelector(store, id));
-
-export const filterSelector = (state) => state.todo.filterBy;
