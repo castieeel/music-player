@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "../centerblock.styles";
 
+
 const FilterContent = ({ content, onSelect }) => {
   console.log(content);
   const filterItem = content.map((item) => (

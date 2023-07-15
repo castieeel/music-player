@@ -32,7 +32,7 @@ export const TrackTitleImage = styled.div`
   width: 51px;
   height: 51px;
   padding: 16px;
-  background: ${(props) => (props.theme === "dark" ? "#313131" : "#F6F4F4")};
+  background: ${(props) => props.theme.backgroundTrackTitleSvg};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +43,7 @@ export const TrackTitleSvg = styled.svg`
   width: 18px;
   height: 17px;
   fill: transparent;
-  stroke: #4e4e4e;
+  stroke: ${(props) => props.theme.playlistColor};
 `;
 
 export const TrackTitleLink = styled.a`
@@ -51,7 +51,7 @@ export const TrackTitleLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  color: ${(props) => props.theme.color};
 `;
 
 export const TrackTitleSpan = styled.span`
@@ -73,7 +73,7 @@ export const TrackAuthorLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: ${(props) => (props.theme === "dark" ? "#FFFFFF" : "#181818")};
+  color: ${(props) => props.theme.color};
   text-align: left;
 `;
 
@@ -86,7 +86,7 @@ export const TrackAlbumLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #696969;
+  color: ${(props) => props.theme.playlistColor};
 `;
 
 export const TrackTime = styled.div``;
@@ -96,7 +96,7 @@ export const TrackTimeSvg = styled.svg`
   height: 12px;
   margin-right: 17px;
   fill: transparent;
-  stroke: #696969;
+  stroke: ${(props) => props.theme.playlistColor};
 `;
 
 export const TrackTimeText = styled.span`
@@ -105,7 +105,7 @@ export const TrackTimeText = styled.span`
   font-size: 16px;
   line-height: 24px;
   text-align: right;
-  color: #696969;
+  color:${(props) => props.theme.playlistColor};
 `;
 
 export const PlaylistTitleCol01 = styled.div`
@@ -114,7 +114,7 @@ export const PlaylistTitleCol01 = styled.div`
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 2px;
-  color: #696969;
+  color: ${(props) => props.theme.playlistColor};
   text-transform: uppercase;
 
   width: 447px;
@@ -126,7 +126,7 @@ export const PlaylistTitleCol02 = styled.div`
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 2px;
-  color: #696969;
+  color: ${(props) => props.theme.playlistColor};
   text-transform: uppercase;
 
   width: 321px;
@@ -138,7 +138,7 @@ export const PlaylistTitleCol03 = styled.div`
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 2px;
-  color: #696969;
+  color: ${(props) => props.theme.playlistColor};
   text-transform: uppercase;
 
   width: 245px;
@@ -150,7 +150,7 @@ export const PlaylistTitleCol04 = styled.div`
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 2px;
-  color: #696969;
+  color: ${(props) => props.theme.playlistColor};
   text-transform: uppercase;
 
   width: 60px;
@@ -161,7 +161,7 @@ export const PlaylistTitleSvg = styled.svg`
   width: 12px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
+  stroke: ${(props) => props.theme.playlistColor};
 `;
 
 export const ContentTitle = styled.div`

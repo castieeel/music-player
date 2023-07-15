@@ -1,25 +1,29 @@
 import * as S from "./bar.styles";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Icons from "../../assets/img/icon/sprite.svg";
 import { TrackPlay } from "./player/TrackPlay";
 import { Volume } from "./player/Volume";
+import { useThemeContext } from "../../contexts/theme";
 
 export const Bar = () => {
   const [activeMusic, setActiveMusic] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const btnPlay = React.createRef();
   const svgPlay = activeMusic ? `${Icons}#icon-pause` : `${Icons}#icon-play`;
+  const audioRef = useRef(null);
+  const progressRef = useRef();
+  const { theme } = useThemeContext();
+
+  const ProgressChange = () => {
+    audioRef.current.currentTime =
+      (progressRef.current.value / 1000) * audioRef.current.duration;
+  };
 
   useEffect(() => {
-    btnPlay.current.ontimeupdate = (e) => {
-      setCurrentTime(btnPlay.current.currentTime);
+    audioRef.current.ontimeupdate = () => {
+      const progress =
+        (audioRef.current.currentTime / audioRef.current.duration) * 1000;
+      progressRef.current.value = progress;
     };
-  }, [btnPlay]);
-
-  function handleProgress(value) {
-    btnPlay.current.currentTime = value;
-    setCurrentTime(btnPlay.current.currentTime);
-  }
+  }, [audioRef, progressRef]);
 
   const controlsData = [
     {
@@ -41,7 +45,7 @@ export const Bar = () => {
       handleClick: () => {
         //логика
         setActiveMusic(!activeMusic);
-        activeMusic ? btnPlay.current.pause() : btnPlay.current.play();
+        activeMusic ? audioRef.current.pause() : audioRef.current.play();
       },
     },
     {
@@ -78,24 +82,25 @@ export const Bar = () => {
 
   return (
     <S.Bar>
-      <S.audio
-        ref={btnPlay}
-        controls
-        src="/Bobby_Marleni_-_Dropin.mp3"
-      ></S.audio>
+      <S.audio ref={audioRef} src="/Bobby_Marleni_-_Dropin.mp3"></S.audio>
       <S.BarContent>
         <S.BarPlayerProgress
           type="range"
-          max={btnPlay.current ? btnPlay.current.duration : 0}
-          value={currentTime}
-          onChange={(e) => handleProgress(e.target.value)}
+          ref={progressRef}
+          defaultValue={0}
+          max={1000}
+          onChange={ProgressChange}
         ></S.BarPlayerProgress>
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
               {controlsData.map((item) => (
-                <item.className key={item.id} onClick={item.handleClick}>
-                  <item.svgClassName alt={item.name}>
+                <item.className
+                  theme={theme}
+                  key={item.id}
+                  onClick={item.handleClick}
+                >
+                  <item.svgClassName theme={theme} alt={item.name}>
                     <use xlinkHref={item.svg}></use>
                   </item.svgClassName>
                 </item.className>
