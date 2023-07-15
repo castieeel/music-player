@@ -1,43 +1,45 @@
-import { useSelector } from "react-redux";
-import { todosSelector } from "../../store/selectors/todo";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  todosSelector,
+  todosLoadingSelector,
+  todosErrorSelector,
+} from "../../store/selectors/todo";
 import { Todo } from "./todo";
-import { filters, filterBy } from "../../store/slices/todo";
-import { useDispatch } from "react-redux";
+import { fetchTodos } from "../../store/actions/thunks/todo";
 
 import styles from "./index.module.css";
 
 export const TodoList = () => {
-  const todos = useSelector(todosSelector);
-  const filter = useSelector((state) => state.todo.filterBy);
-
   const dispatch = useDispatch();
 
-  const filteredTodo = () => {
-    if (filter === filters.DONE) {
-      return todos.filter((todo) => todo.completed);
-    }
-    if (filter === filters.ACTIVE) {
-      return todos.filter((todo) => !todo.completed);
-    }
-    // if none of above return all todos
-    return todos;
-  };
+  const todos = useSelector(todosSelector);
+  const loading = useSelector(todosLoadingSelector);
+  const error = useSelector(todosErrorSelector);
+
+  const isEmptyList = !loading && !todos?.length;
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error.message}</p>;
+  }
+
+  if (isEmptyList) {
+    return <p>No todos, yay!</p>;
+  }
 
   return (
-    <>
-      <button onClick={() => dispatch(filterBy(filters.ACTIVE))}>
-        👋Active
-      </button>
-      <button onClick={() => dispatch(filterBy(filters.DONE))}>✅Done</button>
-      <button onClick={() => dispatch(filterBy(filters.ALL))}>❗All</button>
-      <ul className={styles.list}>
-        {/* {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
-        ))} */}
-        {filteredTodo().map((todo) => (
-          <Todo key={todo.id} todo={todo} />
-        ))}
-      </ul>
-    </>
+    <ul className={styles.list}>
+      {todos.map((todo) => (
+        <Todo key={todo.id} todo={todo} />
+      ))}
+    </ul>
   );
 };

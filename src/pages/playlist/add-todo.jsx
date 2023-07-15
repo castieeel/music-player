@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../store/slices/todo";
+import { createTodo } from "../../store/actions/thunks/todo";
 
 import styles from "./index.module.css";
 
@@ -13,7 +13,7 @@ export const AddTodo = () => {
   };
 
   const handleAddTodo = () => {
-    dispatch(addTodo(value));
+    dispatch(createTodo(value)); 
     setValue("");
   };
 
