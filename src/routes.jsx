@@ -1,20 +1,21 @@
 import { Routes, Route } from "react-router-dom";
-import { Main } from "./pages/main";
+import { MainPage } from "./pages/main";
 import { Login } from "./pages/login";
-import { Playlist } from "./pages/playlist";
-import { Registration } from "./pages/registration";
-import { Set } from "./pages/set";
+import { RegistrationPage } from "./pages/signup";
+import { FavouritesPage } from "./pages/favourites";
 import { NotFound } from "./pages/not-found";
-
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Main />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/playlist" element={<Playlist />} />
-      <Route path="/registration" element={<Registration />} />
-      <Route path="/set" element={<Set />} />
+      <Route path="/registration" element={<RegistrationPage />} />
+
+      <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/favourites" element={<FavouritesPage />} />
+      </Route>
 
       <Route path="*" element={<NotFound />} />
     </Routes>
