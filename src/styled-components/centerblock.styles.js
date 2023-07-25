@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const MainCenterblock = styled.div`
   width: auto;
   flex-grow: 3;
