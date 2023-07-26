@@ -53,7 +53,7 @@ export const Centerblock = ({ data, error }) => {
       <Nav />
       <S.MainCenterblock theme={theme}>
         <Search />
-        <S.CenterblockH2>Все треки</S.CenterblockH2>
+        <S.CenterblockH2>Треки</S.CenterblockH2>
         <Filter data={data} />
         <S.CenterblockContent>
           <PlaylistTitle />

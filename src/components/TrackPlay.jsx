@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import * as S from "../styled-components/bar.styles";
 import { useThemeContext } from "../contexts/theme";
 
-export const TrackPlay = () => {
+export const TrackPlay = ({ track }) => {
   const [loading, setLoading] = useState(true);
   const { theme } = useThemeContext();
   //выполняется при первом рендере
@@ -34,16 +34,16 @@ export const TrackPlay = () => {
             <Skeleton style={{ width: "49", height: "15" }} />
           ) : (
             <S.TrackPlayAuthorLink theme={theme}>
-              Ты та...
+              {track.name}
             </S.TrackPlayAuthorLink>
           )}
-        </S.TrackPlayAuthor>
+        </S.TrackPlayAuthor> 
         <S.TrackPlayAlbum>
           {loading ? (
             <Skeleton style={{ width: "49", height: "15" }} />
           ) : (
             <S.TrackPlayAlbumLink theme={theme} href="http://">
-              Баста
+              {track.author}
             </S.TrackPlayAlbumLink>
           )}
         </S.TrackPlayAlbum>

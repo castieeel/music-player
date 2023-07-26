@@ -92,120 +92,17 @@ export const FilterNum = styled.div`
 `;
 
 export const FilterDropdownMenu = styled.div`
-    position: absolute;
-    left: 0;
-    top: 100%;
-    width: 248px;
-    background: var(--bg-gray);
-    border-radius: 12px;
-    padding: 30px;
-    z-index: 1;
-    margin-top: 10px;
-  }
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 248px;
+  background: #313131;
+  border-radius: 12px;
+  padding: 30px;
+  z-index: 1;
+  margin-top: 10px;
 `;
 export const FilterWrapperDropdown = styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    gap: 28px;
-    overflow: auto;
-    max-height: 232px;
-    padding-right: 5px;
-
-    &::-webkit-scrollbar {
-      width: 4px;
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #4b4949;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: #fff;
-    }
-  }
-`;
-
-export const FilterItem = styled.li`
-  display: flex;
-  width: 119px;
-  height: 24px;
-
-  font-family: "StratosSkyeng";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  transition: 0.2s all;
-  &:hover {
-    color: #ad61ff;
-    text-decoration: underline;
-  }
-  &:active {
-    color: #ad61ff;
-    text-decoration: underline;
-  }
-}`;
-
-export const DropdownItem = styled.a`
-   {
-    font-size: 20px;
-    line-height: 24px;
-    cursor: pointer;
-    color: ${(props) => (props.isSelected ? "#b672ff" : "")};
-    &:hover {
-      color: #b672ff;
-      text-decoration: underline;
-    }
-  }
-`;
-
-export const FilterButtonBadge = styled.div`
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  background-color: rgb(173, 97, 255);
-  border-radius: 50%;
-  right: -8px;
-  top: -10px;
-  z-index: 1;
-  text-align: center;
-`;
-
-export const FilterButton = styled.div`
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  border: 1px solid var(--color-basic-text);
-  border-radius: 60px;
-  padding: 6px 20px;
-`;
-
-export const FilterButtonHeaderBox = styled.div`
-  position: absolute;
-
-  width: 248px;
-  height: 305px;
-
-  top: 50px;
-  left: 0;
-
-  border-radius: 12px;
-  padding: 34px;
-
-  background-color: #313131;
-  padding-top: 36.5px;
-  padding-left: 34px;
-  padding-right: 34px;
-  padding-bottom: 36.5px;
-  box-sizing: border-box;
-  cursor: pointer;
-}`;
-
-export const FilterButtonHeaderBoxUl = styled.ul`
   width: 176px;
   max-height: 232px;
 
@@ -230,7 +127,51 @@ export const FilterButtonHeaderBoxUl = styled.ul`
   }
 `;
 
-export const Button = styled.button`
+export const FilterItem = styled.li`
+  display: flex;
+  width: 119px;
+  height: 24px;
+
+  font-family: "StratosSkyeng";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  transition: 0.2s all;
+  &:hover {
+    color: #ad61ff;
+    text-decoration: underline;
+  }
+  &:active {
+    color: #ad61ff;
+    text-decoration: underline;
+  }
+`;
+
+export const DropdownItem = styled.a`
+  font-size: 20px;
+  line-height: 24px;
+  cursor: pointer;
+  color: ${(props) => (props.isSelected ? "#b672ff" : "")};
+  &:hover {
+    color: #b672ff;
+    text-decoration: underline;
+  }
+`;
+
+export const FilterButtonBadge = styled.div`
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-color: rgb(173, 97, 255);
+  border-radius: 50%;
+  right: -8px;
+  top: -10px;
+  z-index: 1;
+  text-align: center;
+`;
+
+export const FilterButton = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -247,6 +188,27 @@ export const Button = styled.button`
     color: #d9b6ff;
     cursor: pointer;
   }
+`;
+
+export const FilterButtonHeaderBox = styled.div`
+  position: absolute;
+
+  width: 248px;
+  height: 305px;
+
+  top: 50px;
+  left: 0;
+
+  border-radius: 12px;
+  padding: 34px;
+
+  background-color: #313131;
+  padding-top: 36.5px;
+  padding-left: 34px;
+  padding-right: 34px;
+  padding-bottom: 36.5px;
+  box-sizing: border-box;
+  cursor: pointer;
 `;
 
 export const Main = styled.div`

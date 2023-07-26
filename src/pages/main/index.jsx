@@ -1,8 +1,8 @@
 import { Centerblock } from "../../components/Centerblock";
-import { Bar } from "../../components/Bar";
 import { Footer } from "../../components/Footer";
 import Loader from "../../components/Loader";
 import { useGetAllTracksQuery } from "../../services/catalog";
+import { BarMain } from "../../components/BarMain";
 
 export const MainPage = () => {
   const { data, error, isLoading } = useGetAllTracksQuery();
@@ -13,7 +13,7 @@ export const MainPage = () => {
   ) : (
     <>
       <Centerblock data={tracksData} error={error} />
-      <Bar data={tracksData} />
+      <BarMain data={tracksData} />
       <Footer />
     </>
   );

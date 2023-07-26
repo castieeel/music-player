@@ -4,13 +4,62 @@ import Icons from "../assets/img/icon/sprite.svg";
 import { TrackPlay } from "./TrackPlay";
 import { Volume } from "./Volume";
 import { useThemeContext } from "../contexts/theme";
+import { useDispatch } from "react-redux";
+import { useAudio } from "react-use";
+import { setCurrentTrackID } from "../store/slices/user";
 
-export const Bar = () => {
+export const Bar = ({ id, tracks }) => {
   const [activeMusic, setActiveMusic] = useState(false);
   const svgPlay = activeMusic ? `${Icons}#icon-pause` : `${Icons}#icon-play`;
   const audioRef = useRef(null);
   const progressRef = useRef();
   const { theme } = useThemeContext();
+
+  const dispatch = useDispatch();
+  const [isShuffle, setShuffle] = useState(false);
+  const [isRepeat, setRepeat] = useState(false);
+
+  let ind = tracks.findIndex((track) => track.id === id);
+
+  useEffect(() => {
+    dispatch(setCurrentTrackID({ id: tracks[ind === -1 ? 0 : ind].id }));
+    console.log(tracks[ind].id);
+  }, [dispatch, id, ind, tracks]);
+
+  const playingTrack = tracks[ind];
+
+  const [audio, state, controls] = useAudio({
+    src: playingTrack.track_file,
+    autoPlay: true,
+    onEnded: () => {
+      if (!isRepeat) {
+        handleNext();
+      } else {
+        controls.seek(0);
+        controls.play();
+      }
+    },
+  });
+
+  const getRandom = () => Math.floor(Math.random() * tracks.length);
+
+  const handleNext = () => {
+    if (isShuffle) {
+      ind = getRandom();
+    } else ind++;
+
+    ind = ind > tracks.length - 1 ? null : tracks[ind].id;
+    dispatch(setCurrentTrackID({ id: ind }));
+  };
+
+  const handlePrev = () => {
+    if (isShuffle) {
+      ind = getRandom();
+    } else ind--;
+
+    ind = ind < 0 ? null : tracks[ind].id;
+    dispatch(setCurrentTrackID({ id: ind }));
+  };
 
   const ProgressChange = () => {
     audioRef.current.currentTime =
@@ -33,7 +82,7 @@ export const Bar = () => {
       svgClassName: S.BtnPrevSvg,
       className: S.PlayerBtnPrev,
       handleClick: () => {
-        //логика
+        handlePrev();
       },
     },
     {
@@ -45,7 +94,7 @@ export const Bar = () => {
       handleClick: () => {
         //логика
         setActiveMusic(!activeMusic);
-        activeMusic ? audioRef.current.pause() : audioRef.current.play();
+        activeMusic ? controls.pause() : controls.play();
       },
     },
     {
@@ -55,7 +104,7 @@ export const Bar = () => {
       svgClassName: S.BtnNextSvg,
       className: S.PlayerBtnNext,
       handleClick: () => {
-        //логика
+        handleNext();
       },
     },
     {
@@ -65,7 +114,7 @@ export const Bar = () => {
       svgClassName: S.BtnRepeatSvg,
       className: S.PlayerBtnRepeat,
       handleClick: () => {
-        //логика //_btn-icon
+        setRepeat(!isRepeat);
       },
     },
     {
@@ -75,7 +124,7 @@ export const Bar = () => {
       svgClassName: S.BtnShuffleSvg,
       className: S.PlayerBtnShuffle,
       handleClick: () => {
-        //логика  _btn-icon"
+        setShuffle(!isShuffle);
       },
     },
   ];
@@ -84,6 +133,7 @@ export const Bar = () => {
     <S.Bar>
       <S.audio ref={audioRef} src="/Bobby_Marleni_-_Dropin.mp3"></S.audio>
       <S.BarContent>
+        {audio}
         <S.BarPlayerProgress
           type="range"
           ref={progressRef}
@@ -106,9 +156,9 @@ export const Bar = () => {
                 </item.className>
               ))}
             </S.PlayerControls>
-            <TrackPlay />
+            <TrackPlay track={playingTrack} />
           </S.BarPlayer>
-          <Volume />
+          <Volume state={state} controls={controls} />
         </S.BarPlayerBlock>
       </S.BarContent>
     </S.Bar>

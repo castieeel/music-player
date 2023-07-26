@@ -1,10 +1,10 @@
-import { Nav } from "../../components/Nav";
-import { Bar } from "../../components/Bar";
+import { useSelector } from "react-redux";
 import { Centerblock } from "../../components/Centerblock";
+import { BarMain } from "../../components/BarMain";
+import { Footer } from "../../components/Footer";
 import Loader from "../../components/Loader";
 import { useGetAllTracksQuery } from "../../services/catalog";
 import { selectUserID } from "../../store/slices/user";
-import { useSelector } from "react-redux";
 
 export const FavouritesPage = () => {
   const { data, error, isLoading } = useGetAllTracksQuery();
@@ -19,8 +19,8 @@ export const FavouritesPage = () => {
   ) : (
     <>
       <Centerblock data={tracksData} error={error} />
-      <Bar data={tracksData} />
-      <footer className="footer"></footer>
+      <BarMain data={tracksData} />
+      <Footer />
     </>
   );
 };

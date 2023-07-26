@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import * as S from "../styled-components/nav.styles";
 import { useThemeContext } from "../contexts/theme";
+import { setLogout } from "../store/slices/user";
+import { useDispatch } from "react-redux";
 
 export const Menu = () => {
   const { theme, toggleTheme } = useThemeContext();
 
-  console.log(theme);
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(setLogout());
+    localStorage.clear();
+  };
+
   return (
     <S.NavMenu>
       <S.NavMenuList>
@@ -19,8 +27,10 @@ export const Menu = () => {
             <S.NavMenuLink theme={theme}>Мой плейлист</S.NavMenuLink>
           </Link>
         </S.NavMenuItem>
-        <S.NavMenuItem theme={theme}>
-          <S.NavMenuLink>Войти</S.NavMenuLink>
+        <S.NavMenuItem>
+          <S.NavMenuLink onClick={() => onLogout()} theme={theme}>
+            Выйти
+          </S.NavMenuLink>
         </S.NavMenuItem>
       </S.NavMenuList>
       {/* СМЕНА ТЕМЫ*/}

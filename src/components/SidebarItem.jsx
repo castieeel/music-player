@@ -1,11 +1,12 @@
 import * as S from "../styled-components/sidebar.styles";
+import { Link } from "react-router-dom";
 
 export const SidebarItem = (props) => {
   return (
     <S.SiderbarItem>
-      <S.SiderbarLink href="#">
-        <S.SiderbarImg src={props.src} alt="day's playlist"></S.SiderbarImg>
-      </S.SiderbarLink>
+      <Link to={props.link}>
+        <S.SiderbarImg src={props.src}></S.SiderbarImg>
+      </Link>
     </S.SiderbarItem>
   );
 };

@@ -30,7 +30,7 @@ export const PlaylistItem = ({ track }) => {
 
   useEffect(() => {
     setFavourite(stared_user.some((user) => user.id === userID));
-  }, [track]);
+  }, [stared_user, track, userID]);
 
   const handleSetLike = () => {
     if (isFavourite) setUnlike(trackID);
@@ -90,7 +90,7 @@ export const PlaylistItem = ({ track }) => {
           </SkeletonLoading>
         </S.TrackAlbum>
         <S.TrackTime theme={theme}>
-          <S.TrackTimeSvg alt="time" onClick={handleSetLike}>
+          <S.TrackTimeSvg alt="time" onClick={handleSetLike} theme={theme}>
             <use
               xlinkHref={`${Icons}#icon-${isFavourite ? "like" : "dislike"}`}
             ></use>

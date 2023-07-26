@@ -5,6 +5,7 @@ import { RegistrationPage } from "./pages/signup";
 import { FavouritesPage } from "./pages/favourites";
 import { NotFound } from "./pages/not-found";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { PlaylistPage } from "./pages/playlist";
 
 export const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ export const AppRoutes = () => {
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/favourites" element={<FavouritesPage />} />
+        <Route path="/playlist/:id" element={<PlaylistPage />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

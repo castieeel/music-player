@@ -50,12 +50,11 @@ export const Input = styled.input`
   }
 `;
 
-export const Info = styled.div` 
-      margin-top: 10px;
-      min-height: 50px;
-      color: red;
-    }
-  `;
+export const Info = styled.div`
+  margin-top: 10px;
+  min-height: 50px;
+  color: red;
+`;
 
 export const Button = styled.button`
   &.primary {
@@ -96,5 +95,4 @@ export const Button = styled.button`
     &:active {
       background-color: #d9d9d9;
     }
-  }
 `;
