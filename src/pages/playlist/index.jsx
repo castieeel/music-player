@@ -1,13 +1,23 @@
-import { AddTodo } from "./add-todo";
-import { TodoList } from "./todo-list";
+import { useParams } from "react-router-dom";
+import { Centerblock } from "../../components/Centerblock";
+import { BarMain } from "../../components/BarMain";
+import { Footer } from "../../components/Footer";
+import Loader from "../../components/Loader";
+import { useGetPlaylistByIDQuery } from "../../services/catalog";
 
-export const Playlist = () => {
-  return (
-    <div>
-      <h1>Playlist</h1>
+export const PlaylistPage = () => {
+  const params = useParams();
+  const id = Number(params.id);
+  const { data, error, isLoading } = useGetPlaylistByIDQuery(id);
+  const tracksData = data;
 
-      <AddTodo />
-      <TodoList />
-    </div>
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <>
+      <Centerblock data={tracksData.items} error={error} />
+      <BarMain data={tracksData.items} />
+      <Footer />
+    </>
   );
 };
