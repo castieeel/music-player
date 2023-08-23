@@ -34,5 +34,3 @@ export const Volume = ({ state, controls }) => {
     </S.BarVolumeBlock>
   );
 };
-
-//_btn

@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components";
+import StratosSkyeng from "../assets/fonts/Stratos-Regular.woff";
+import StratosSkyeng2 from "../assets/fonts/Stratos-Regular.woff2";
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -34,9 +36,8 @@ ul li {
 @font-face {
   font-family: "StratosSkyeng";
   src: local("StratosSkyeng"), local("StratosSkyeng"),
-    url("../fonts/StratosSkyeng.woff2") format("woff2"),
-    url("../fonts/StratosSkyeng.woff") format("woff"),
-    url("../fonts/StratosSkyeng.ttf") format("truetype");
+    url(${StratosSkyeng2}) format("woff2"),
+    url(${StratosSkyeng}) format("woff");
   font-weight: 400;
   font-style: normal;
 }

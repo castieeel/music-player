@@ -1,32 +1,50 @@
-import * as S from "../styled-components/bar.styles";
 import React, { useState, useEffect, useRef } from "react";
-import Icons from "../assets/img/icon/sprite.svg";
 import { TrackPlay } from "./TrackPlay";
 import { Volume } from "./Volume";
 import { useThemeContext } from "../contexts/theme";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useAudio } from "react-use";
 import { setCurrentTrackID } from "../store/slices/user";
+import { useSetLikeMutation, useSetUnlikeMutation } from "../services/catalog";
+import { selectUserID } from "../store/slices/user";
+import * as S from "../styled-components/bar.styles";
+import Icons from "../assets/img/icon/sprite.svg";
 
 export const Bar = ({ id, tracks }) => {
-  const [activeMusic, setActiveMusic] = useState(false);
-  const svgPlay = activeMusic ? `${Icons}#icon-pause` : `${Icons}#icon-play`;
-  const audioRef = useRef(null);
-  const progressRef = useRef();
-  const { theme } = useThemeContext();
-
-  const dispatch = useDispatch();
+  const [setLike] = useSetLikeMutation();
+  const [setUnlike] = useSetUnlikeMutation();
+  const userID = useSelector(selectUserID);
+  const [activeMusic, setActiveMusic] = useState(true);
   const [isShuffle, setShuffle] = useState(false);
   const [isRepeat, setRepeat] = useState(false);
+  const [isFavourite, setFavourite] = useState(false);
+  const progressRef = useRef();
+  const { theme } = useThemeContext();
+  const dispatch = useDispatch();
 
-  let ind = tracks.findIndex((track) => track.id === id);
+  let currentIdPlst = tracks.findIndex((track) => track.id === id);
+  currentIdPlst = currentIdPlst === -1 ? 0 : currentIdPlst;
 
   useEffect(() => {
-    dispatch(setCurrentTrackID({ id: tracks[ind === -1 ? 0 : ind].id }));
-    console.log(tracks[ind].id);
-  }, [dispatch, id, ind, tracks]);
+    dispatch(
+      setCurrentTrackID({
+        id: tracks[currentIdPlst === -1 ? 0 : currentIdPlst].id,
+      })
+    );
+  }, [dispatch, id, currentIdPlst, tracks]);
 
-  const playingTrack = tracks[ind];
+  const playingTrack = tracks[currentIdPlst];
+  console.log(playingTrack.id);
+  const { id: trackID, stared_user } = playingTrack;
+
+  useEffect(() => {
+    setFavourite(stared_user.some((user) => user.id === userID));
+  }, [stared_user, playingTrack.id, userID]);
+
+  const handleSetLike = () => {
+    if (isFavourite) setUnlike(trackID);
+    else setLike(trackID);
+  };
 
   const [audio, state, controls] = useAudio({
     src: playingTrack.track_file,
@@ -45,35 +63,42 @@ export const Bar = ({ id, tracks }) => {
 
   const handleNext = () => {
     if (isShuffle) {
-      ind = getRandom();
-    } else ind++;
+      currentIdPlst = getRandom();
+    } else currentIdPlst++;
 
-    ind = ind > tracks.length - 1 ? null : tracks[ind].id;
-    dispatch(setCurrentTrackID({ id: ind }));
+    currentIdPlst =
+      currentIdPlst > tracks.length - 1 ? null : tracks[currentIdPlst].id;
+    dispatch(setCurrentTrackID({ id: currentIdPlst }));
   };
 
   const handlePrev = () => {
     if (isShuffle) {
-      ind = getRandom();
-    } else ind--;
+      currentIdPlst = getRandom();
+    } else currentIdPlst--;
 
-    ind = ind < 0 ? null : tracks[ind].id;
-    dispatch(setCurrentTrackID({ id: ind }));
-  };
-
-  const ProgressChange = () => {
-    audioRef.current.currentTime =
-      (progressRef.current.value / 1000) * audioRef.current.duration;
+    currentIdPlst = currentIdPlst < 0 ? null : tracks[currentIdPlst].id;
+    dispatch(setCurrentTrackID({ id: currentIdPlst }));
   };
 
   useEffect(() => {
-    audioRef.current.ontimeupdate = () => {
-      const progress =
-        (audioRef.current.currentTime / audioRef.current.duration) * 1000;
-      progressRef.current.value = progress;
-    };
-  }, [audioRef, progressRef]);
+    progressRef.current.value = state.time || 0;
+    progressRef.current.style.setProperty(
+      "--range-progress",
+      `${(state.time / state.duration) * 100}%`
+    );
+  }, [state.time, state.duration]);
 
+  const progressChange = () => {
+    controls.seek(Number(progressRef.current.value));
+  };
+
+  let svgPlay = activeMusic ? `${Icons}#icon-pause` : `${Icons}#icon-play`;
+  let svgRepeat = isRepeat
+    ? `${Icons}#icon-repeat-true`
+    : `${Icons}#icon-repeat`;
+  let svgShuffle = isShuffle
+    ? `${Icons}#icon-shuffle-true`
+    : `${Icons}#icon-shuffle`;
   const controlsData = [
     {
       id: 1,
@@ -92,7 +117,6 @@ export const Bar = ({ id, tracks }) => {
       svgClassName: S.BtnPlaySvg,
       className: S.PlayerBtnPlay,
       handleClick: () => {
-        //логика
         setActiveMusic(!activeMusic);
         activeMusic ? controls.pause() : controls.play();
       },
@@ -110,7 +134,7 @@ export const Bar = ({ id, tracks }) => {
     {
       id: 4,
       name: "repeat",
-      svg: `${Icons}#icon-repeat`,
+      svg: svgRepeat,
       svgClassName: S.BtnRepeatSvg,
       className: S.PlayerBtnRepeat,
       handleClick: () => {
@@ -120,7 +144,7 @@ export const Bar = ({ id, tracks }) => {
     {
       id: 5,
       name: "shuffle",
-      svg: `${Icons}#icon-shuffle`,
+      svg: svgShuffle,
       svgClassName: S.BtnShuffleSvg,
       className: S.PlayerBtnShuffle,
       handleClick: () => {
@@ -131,15 +155,16 @@ export const Bar = ({ id, tracks }) => {
 
   return (
     <S.Bar>
-      <S.audio ref={audioRef} src="/Bobby_Marleni_-_Dropin.mp3"></S.audio>
+      <S.audio></S.audio>
       <S.BarContent>
         {audio}
         <S.BarPlayerProgress
+          theme={theme}
           type="range"
           ref={progressRef}
-          defaultValue={0}
-          max={1000}
-          onChange={ProgressChange}
+          min="0"
+          max={state.duration}
+          onChange={progressChange}
         ></S.BarPlayerProgress>
         <S.BarPlayerBlock>
           <S.BarPlayer>
@@ -157,6 +182,21 @@ export const Bar = ({ id, tracks }) => {
               ))}
             </S.PlayerControls>
             <TrackPlay track={playingTrack} />
+            <S.TrackPlayLikeDis theme={theme}>
+              <S.TrackPlayLike>
+                <S.TrackPlayLikeSvg
+                  onClick={handleSetLike}
+                  theme={theme}
+                  alt="like"
+                >
+                  <use
+                    xlinkHref={`${Icons}#icon-${
+                      isFavourite ? "like-true" : "like"
+                    }`}
+                  ></use>
+                </S.TrackPlayLikeSvg>
+              </S.TrackPlayLike>
+            </S.TrackPlayLikeDis>
           </S.BarPlayer>
           <Volume state={state} controls={controls} />
         </S.BarPlayerBlock>
