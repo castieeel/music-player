@@ -15,6 +15,8 @@ export const themes = {
     backgroundBar: "rgba(250, 250, 250, 0.5)",
     btnBarColor: "#B1B1B1",
     albumBarColor: "#F6F4F4",
+    progressThumb: "rgba(0, 0, 0, 0.07)",
+    progressLine: "#d9d9d9",
   },
   dark: {
     name: "dark",
@@ -28,6 +30,8 @@ export const themes = {
     backgroundBar: "rgba(28, 28, 28, 0.5)",
     btnBarColor: "#d9d9d9",
     albumBarColor: "#313131",
+    progressThumb: "rgba(255, 255, 255, 0.1)",
+    progressLine: "#2e2e2e"
   },
 };
 

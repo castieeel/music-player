@@ -14,9 +14,61 @@ export const BarContent = styled.div`
 `;
 
 export const BarPlayerProgress = styled.input`
+  background: ${(props) => props.theme.progressLine};
+  appearance: none;
+  position: relative;
   width: 100%;
   height: 5px;
-  background: #2e2e2e;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+
+  &::-moz-range-track {
+    position: relative;
+    background: #ccc;
+    width: 100%;
+    height: 5px;
+    border-radius: 0;
+    cursor: pointer;
+  }
+
+  &::before {
+    content: "";
+    height: 5px;
+    background: #b672ff;
+    width: var(--range-progress);
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &::-moz-range-progress {
+    background: #b672ff;
+    border-radius: 0;
+    height: 5px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    border: none;
+    background: ${(props) => props.theme.progressThumb};
+    cursor: pointer;
+    position: relative;
+  }
+
+  &::-moz-range-thumb {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    background: ${(props) => props.theme.progressThumb};
+    cursor: pointer;
+    border: transparent;
+    position: relative;
+  }
 `;
 
 export const BarPlayerBlock = styled.div`
@@ -151,6 +203,7 @@ export const VolumeSvg = styled.svg`
   width: 13px;
   height: 18px;
   fill: transparent;
+  stroke: ${(props) => props.theme.playlistColor};
 `;
 
 export const VolumeProgress = styled.div`
@@ -159,6 +212,7 @@ export const VolumeProgress = styled.div`
 
 export const VolumeProgressLine = styled.input`
   width: 109px;
+  background: #ffffff;
 `;
 
 export const PlayerBtnPrev = styled.div`

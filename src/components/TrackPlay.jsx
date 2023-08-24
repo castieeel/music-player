@@ -48,18 +48,6 @@ export const TrackPlay = ({ track }) => {
           )}
         </S.TrackPlayAlbum>
       </S.TrackPlayContain>
-      <S.TrackPlayLikeDis theme={theme}>
-        <S.TrackPlayLike>
-          <S.TrackPlayLikeSvg theme={theme} alt="like">
-            <use xlinkHref={`${Icons}#icon-like`}></use>
-          </S.TrackPlayLikeSvg>
-        </S.TrackPlayLike>
-        <S.TrackPlayDislike theme={theme}>
-          <S.TrackPlayDislikeSvg alt="dislike">
-            <use xlinkHref={`${Icons}#icon-dislike`}></use>
-          </S.TrackPlayDislikeSvg>
-        </S.TrackPlayDislike>
-      </S.TrackPlayLikeDis>
     </S.PlayerTrackPlay>
   );
 };
