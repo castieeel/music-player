@@ -22,8 +22,11 @@ export const Bar = ({ id, tracks }) => {
   const { theme } = useThemeContext();
   const dispatch = useDispatch();
 
+  console.log(tracks);
   let currentIdPlst = tracks.findIndex((track) => track.id === id);
   currentIdPlst = currentIdPlst === -1 ? 0 : currentIdPlst;
+  console.log(currentIdPlst);
+  console.log(tracks[currentIdPlst === -1 ? 0 : currentIdPlst].id);
 
   useEffect(() => {
     dispatch(
@@ -34,7 +37,9 @@ export const Bar = ({ id, tracks }) => {
   }, [dispatch, id, currentIdPlst, tracks]);
 
   const playingTrack = tracks[currentIdPlst];
+  console.log(playingTrack);
   const { id: trackID, stared_user } = playingTrack;
+  console.log(trackID);
 
   useEffect(() => {
     setFavourite(stared_user.some((user) => user.id === userID));
