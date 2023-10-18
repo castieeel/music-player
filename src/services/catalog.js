@@ -7,7 +7,7 @@ export const catalogApi = createApi({
     tagTypes: ["Tracks", "Playlist"],
     prepareHeaders: (headers, { getState }) => {
       const token = getState().user.access;
-      
+
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
