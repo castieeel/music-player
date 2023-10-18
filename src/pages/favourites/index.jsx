@@ -9,7 +9,6 @@ import { selectUserID } from "../../store/slices/user";
 export const FavouritesPage = () => {
   const { data, error, isLoading } = useGetAllTracksQuery();
   const userID = useSelector(selectUserID);
-  console.log(userID)
 
   const tracksData = data.filter((track) =>
     track.stared_user.some((user) => user.id === userID)

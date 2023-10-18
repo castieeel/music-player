@@ -34,7 +34,6 @@ export const Bar = ({ id, tracks }) => {
   }, [dispatch, id, currentIdPlst, tracks]);
 
   const playingTrack = tracks[currentIdPlst];
-  console.log(playingTrack.id);
   const { id: trackID, stared_user } = playingTrack;
 
   useEffect(() => {
