@@ -63,7 +63,7 @@ export const RegistrationPage = () => {
           </S.Fields>
           <S.Info>{regError}</S.Info>
           <S.Buttons>
-            <S.Button type="submit" className="button-primary">
+            <S.Button type="submit" className="primary">
               Зарегистрироваться
             </S.Button>
           </S.Buttons>
