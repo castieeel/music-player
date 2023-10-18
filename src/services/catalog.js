@@ -3,11 +3,11 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const catalogApi = createApi({
   reducerPath: "catalogApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://painassasin.online",
+    baseUrl: "https://skypro-music-api.skyeng.tech",
     tagTypes: ["Tracks", "Playlist"],
     prepareHeaders: (headers, { getState }) => {
       const token = getState().user.access;
-      console.log(token);
+
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
