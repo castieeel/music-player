@@ -5,5 +5,7 @@ import { Bar } from "../components/Bar";
 export const BarMain = ({ data }) => {
   const currentTrackID = useSelector(selectCurrentTrackID);
 
-  return currentTrackID ? <Bar tracks={data} id={currentTrackID} /> : null;
+  return currentTrackID && data.length !== 0 ? (
+    <Bar tracks={data} id={currentTrackID} />
+  ) : null;
 };
