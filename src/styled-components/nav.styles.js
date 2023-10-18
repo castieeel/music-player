@@ -41,7 +41,7 @@ export const NavMenuItem = styled.li`
   padding: 5px 0;
   margin-bottom: 16px;
 `;
-export const NavMenuLink = styled.a`
+export const NavMenuLink = styled.p`
   color: ${(props) => props.theme.color};
   font-weight: 400;
   font-size: 16px;

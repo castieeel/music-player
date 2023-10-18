@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { PlaylistItem } from "./PlaylistItem";
-import * as S from "../styled-components/playlist.styles";
 import { selectSearch } from "../store/slices/filter";
+import * as S from "../styled-components/playlist.styles";
 
 export const Playlist = ({ data, error }) => {
   const search = useSelector(selectSearch);

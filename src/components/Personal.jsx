@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
+import { selectUserID } from "../store/slices/user";
 import * as S from "../styled-components/sidebar.styles";
-import { selectUserID } from '../store/slices/user'
 
 export const Personal = () => {
-  const userID = useSelector(selectUserID)
+  const userID = useSelector(selectUserID);
   return (
     <S.SiderbarPersonal>
       <S.SiderbarPersonalName>User ID: {userID}</S.SiderbarPersonalName>

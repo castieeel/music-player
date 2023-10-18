@@ -1,13 +1,13 @@
-import Icons from "../assets/img/icon/sprite.svg";
 import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from "react";
 import { SkeletonLoading } from "./SkeletonLoading";
-import * as S from "../styled-components/playlist.styles";
 import { useThemeContext } from "../contexts/theme";
 import { useSetLikeMutation, useSetUnlikeMutation } from "../services/catalog";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserID, setCurrentTrackID } from "../store/slices/user";
+import Icons from "../assets/img/icon/sprite.svg";
+import * as S from "../styled-components/playlist.styles";
 
 export const PlaylistItem = ({ track }) => {
   const { theme } = useThemeContext();
@@ -77,14 +77,12 @@ export const PlaylistItem = ({ track }) => {
         </S.TrackTitle>
         <S.TrackAuthor theme={theme}>
           <SkeletonLoading width={300} height={25}>
-            <S.TrackAuthorLink href="http://" theme={theme}>
-              {author}
-            </S.TrackAuthorLink>
+            <S.TrackAuthorLink theme={theme}>{author}</S.TrackAuthorLink>
           </SkeletonLoading>
         </S.TrackAuthor>
         <S.TrackAlbum theme={theme}>
           <SkeletonLoading width={245} height={25}>
-            <S.TrackAlbumLink href="http://" theme={theme}>
+            <S.TrackAlbumLink theme={theme}>
               {album} ({release_date})
             </S.TrackAlbumLink>
           </SkeletonLoading>

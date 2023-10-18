@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import FilterListItem from "../components/FilterListItem";
-import * as S from "../styled-components/centerblock.styles";
 import {
   delAuthor,
   delGenre,
@@ -9,6 +8,7 @@ import {
   setGenre,
   setYear,
 } from "../store/slices/filter";
+import * as S from "../styled-components/centerblock.styles";
 
 export const FilterPopup = ({ data, type, storeFilter }) => {
   const dispatch = useDispatch();

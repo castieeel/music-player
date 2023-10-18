@@ -37,12 +37,12 @@ export const TrackPlay = ({ track }) => {
               {track.name}
             </S.TrackPlayAuthorLink>
           )}
-        </S.TrackPlayAuthor> 
+        </S.TrackPlayAuthor>
         <S.TrackPlayAlbum>
           {loading ? (
             <Skeleton style={{ width: "49", height: "15" }} />
           ) : (
-            <S.TrackPlayAlbumLink theme={theme} href="http://">
+            <S.TrackPlayAlbumLink theme={theme}>
               {track.author}
             </S.TrackPlayAlbumLink>
           )}
