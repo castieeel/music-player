@@ -1,10 +1,9 @@
+import React, { useState } from "react";
 import { Logo } from "./Logo";
 import { Burger } from "./Burger";
 import { Menu } from "./Menu";
-import React from "react";
-import * as S from "../styled-components/nav.styles";
 import { useThemeContext } from "../contexts/theme";
-const { useState } = React;
+import * as S from "../styled-components/nav.styles";
 
 export const Nav = () => {
   const { theme } = useThemeContext();

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import * as S from "../styled-components/centerblock.styles";
 import { useThemeContext } from "../contexts/theme";
 import { useSelector } from "react-redux";
 import { selectAuthor, selectGenre, selectYear } from "../store/slices/filter";
 import { FilterPopup } from "../components/FilterPopup";
 import { FilterButton } from "./FilterButton";
+import * as S from "../styled-components/centerblock.styles";
 
 export const Filter = ({ data }) => {
   const { theme } = useThemeContext();

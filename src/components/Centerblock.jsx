@@ -5,10 +5,10 @@ import { Filter } from "./Filter";
 import { Sidebar } from "./Sidebar";
 import { PlaylistTitle } from "./PlaylistTitle";
 import { Playlist } from "./Playlist";
-import * as S from "../styled-components/centerblock.styles";
 import { useThemeContext } from "../contexts/theme";
 import { useSelector } from "react-redux";
 import { selectAuthor, selectGenre, selectYear } from "../store/slices/filter";
+import * as S from "../styled-components/centerblock.styles";
 
 export const Centerblock = ({ data, error }) => {
   const { theme } = useThemeContext();

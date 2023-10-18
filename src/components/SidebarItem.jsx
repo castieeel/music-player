@@ -1,5 +1,5 @@
-import * as S from "../styled-components/sidebar.styles";
 import { Link } from "react-router-dom";
+import * as S from "../styled-components/sidebar.styles";
 
 export const SidebarItem = (props) => {
   return (

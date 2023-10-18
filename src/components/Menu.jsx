@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import * as S from "../styled-components/nav.styles";
 import { useThemeContext } from "../contexts/theme";
 import { setLogout } from "../store/slices/user";
 import { useDispatch } from "react-redux";
+import * as S from "../styled-components/nav.styles";
 
 export const Menu = () => {
   const { theme, toggleTheme } = useThemeContext();
